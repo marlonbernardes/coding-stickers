@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
 
-export default function(state = Map(), action) {
+export default function (state = new Map()) {
   return state;
 }
