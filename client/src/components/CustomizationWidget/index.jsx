@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import styles from './CustomizationWidget.scss';
 
-export default class Product extends Component {
+export default class CustomizationWidget extends Component {
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <span>Customization Widget</span>
       </div>
     );
