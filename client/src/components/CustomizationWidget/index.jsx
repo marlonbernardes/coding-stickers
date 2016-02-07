@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Product from '../Product';
-import styles from './CustomizationWidget.scss';
+import styles from './CustomizationWidget.module.scss';
 
 export default class CustomizationWidget extends Component {
   render() {

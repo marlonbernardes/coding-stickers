@@ -1,0 +1,19 @@
+@import "reset";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+$default-font: 'Open Sans', sans-serif;
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: $default-font;
+}
+
+.hidden {
+  display: none;
+}

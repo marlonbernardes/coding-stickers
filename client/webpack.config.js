@@ -18,7 +18,15 @@ module.exports = {
       loaders: ['react-hot', 'babel-loader']
     },
     {
-      test: /\.scss$/,
+      test: /^((?!\.module).)*\.scss$/,
+      loaders: [
+        'style-loader',
+        'css-loader?sourceMap',
+        'sass?sourceMap'
+      ]
+    },
+    {
+      test: /\.module\.scss$/,
       loaders: [
        'style-loader',
        'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!',

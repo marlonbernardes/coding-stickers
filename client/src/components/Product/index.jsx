@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './Product.scss';
+import styles from './Product.module.scss';
 
 export default class Product extends Component {
   render() {

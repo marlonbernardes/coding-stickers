@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
+import styles from './BaseLayout.scss';
 
 const propTypes = {
   children: PropTypes.element,
 };
-
 
 class BaseLayout extends Component {
 
