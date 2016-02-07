@@ -17,6 +17,7 @@
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^5.0.0",
     "eslint-plugin-react": "^3.16.1",
+    "ignore-styles": "^1.2.0",
     "jsdom": "^8.0.2",
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
