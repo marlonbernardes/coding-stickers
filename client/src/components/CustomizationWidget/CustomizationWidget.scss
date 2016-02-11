@@ -1,0 +1,70 @@
+.container.container-header {
+  max-width: 920px;
+}
+
+.container.container-product {
+  min-width: 790px;
+}
+
+.product-view {
+  padding: 22px 44px 22px;
+}
+
+.product-view .product-img {
+  text-align: center;
+  position: relative;
+  width: 550px;
+  margin: 0 auto;
+}
+
+.product-view .product-img > img {
+  width: 100%;
+}
+
+.stickers-header {
+  position: relative;
+}
+
+.stickers {
+  padding: 0 42px;
+}
+
+.stickers:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.share {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.share a {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: #cccccc;
+  padding: 4px 2px;
+  margin-right: 5px;
+}
+
+.share a:hover {
+  background: #000;
+}
+
+.share .icon {
+  color: #fff;
+  position: relative;
+  top: -2px;
+}
+
+.share span {
+  font-family: "Swiss721BT-BoldCondensed";
+  font-size: 15px;
+  text-transform: uppercase;
+  padding-right: 10px;
+}

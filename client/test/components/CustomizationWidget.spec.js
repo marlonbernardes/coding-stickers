@@ -6,6 +6,6 @@ import CustomizationWidget from '../../src/components/CustomizationWidget';
 describe('<CustomizationWidget />', () => {
   it('renders the component', () => {
     const rendered = shallow(<CustomizationWidget />);
-    expect(rendered.find('span')).to.have.length(1);
+    expect(rendered.find('.product-view')).to.have.length(1);
   });
 });

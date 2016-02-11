@@ -1,14 +1,57 @@
 import React, { Component } from 'react';
-import Product from '../Product';
-import styles from './CustomizationWidget.module.scss';
+import StickerList from '../StickerList';
+import DraggableSticker from '../DraggableSticker';
+import styles from './CustomizationWidget.scss';
 
-export default class CustomizationWidget extends Component {
+const defaultProps = {
+  selectedStickers: [],
+};
+
+class CustomizationWidget extends Component {
+
+  renderSelectedStickers() {
+    return this.props.selectedStickers.map((sticker, index) => {
+      return (<DraggableSticker key={ index } image={ sticker.image }/>);
+    });
+  }
+
   render() {
     return (
-      <div className={styles.container}>
-        <span>Customization Widget</span>
-        <Product image="http://store.storeimages.cdn-apple.com/4659/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbookpro/select/macbookpro-select-inthebox?wid=561&hei=402&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1433484222004"/>
+      <div className="container container-product">
+        <div className="product-view">
+          <div className="product-img dropzone">
+            <img id="custom" src="http://store.storeimages.cdn-apple.com/4662/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbookpro/select/macbookpro-select-inthebox?wid=1122&hei=804&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1453535639039" />
+            { this.renderSelectedStickers() }
+          </div>
+        </div>
+        <div className="content stickers">
+          <div className="stickers-header">
+            <a href="javascript:void(0)" className="link-secondary" onClick={this.props.onClearCustomization}>
+              CLEAR CUSTOMIZATION
+            </a>
+            <div className="share">
+              <span>Share it</span>
+              <a className="link-icon fb-share-button">
+                <i className="icon icon-facebook"></i>
+              </a>
+              <a className="link-icon twitter-share-button">
+                <i className="icon icon-twitter"></i>
+              </a>
+              <a className="link-icon fb-share-button">
+                <i className="icon icon-pinterest"></i>
+              </a>
+            </div>
+          </div>
+          <StickerList
+            onClickSticker={this.props.onClickSticker}
+            onClearCustomization={this.props.onClearCustomization}
+            stickers={this.props.stickers}
+          />
       </div>
+    </div>
     );
   }
 }
+
+CustomizationWidget.defaultProps = defaultProps;
+export default CustomizationWidget;
