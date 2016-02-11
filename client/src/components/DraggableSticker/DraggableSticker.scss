@@ -1,0 +1,84 @@
+.draggable-sticker {
+  border: 2px solid transparent;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.draggable-sticker button {
+  display: none;
+}
+
+.draggable-sticker.draggable-selected {
+  border: 2px dashed #898989;
+  display: inline-block;
+  z-index: 999;
+  /* or use the shorthand border-image */
+  border-image: url("/static/img/general/border-style.png") 2 round;
+}
+
+.draggable-sticker.draggable-selected img {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  margin-top: -1px;
+  margin-right: -1px;
+  -webkit-filter: drop-shadow(2px 8px 2px rgba(0, 0, 0, 0.5));
+}
+
+.draggable-selected .delete-button {
+  top: 0;
+  right: -18px;
+  height: 17px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.draggable-selected .delete-button span {
+  background: #e70632;
+  width: 14px;
+  height: 14px;
+  color: #fff;
+  font-size: 8px;
+  line-height: 12px;
+}
+
+.draggable-selected button {
+  background: transparent;
+  border: 0;
+  width: 75px;
+  height: 150px;
+  display: block;
+  cursor: ns-resize;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.draggable-selected button span {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #fff;
+  background: #000;
+  display: block;
+}
+
+.rotate-button-left {
+  left: -62px;
+}
+
+.rotate-button-left span {
+  float: right;
+}
+
+.rotate-button-right {
+  right: -62px;
+}
