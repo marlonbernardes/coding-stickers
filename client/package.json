@@ -31,6 +31,7 @@
   "dependencies": {
     "history": "^1.17.0",
     "immutable": "^3.7.6",
+    "interact.js": "^1.2.6",
     "perfect-scrollbar": "^0.6.10",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
