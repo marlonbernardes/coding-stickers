@@ -1,0 +1,23 @@
+.ps-container > .ps-scrollbar-x-rail {
+  height: 10px;
+  border-right: 10px solid #fff;
+  border-left: 10px solid #fff; }
+  .ps-container > .ps-scrollbar-x-rail .ps-scrollbar-x {
+    height: 10px; }
+
+.ps-container > .ps-scrollbar-y-rail {
+  width: 10px; }
+  .ps-container > .ps-scrollbar-y-rail .ps-scrollbar-y {
+    width: 10px; }
+
+.ps-container > .ps-scrollbar-y-rail, .ps-container > .ps-scrollbar-x-rail {
+  opacity: 1 !important;
+  background: #ebebeb;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0; }
+  .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y, .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-x, .ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-y, .ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: #000; }

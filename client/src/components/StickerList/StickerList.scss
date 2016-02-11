@@ -1,0 +1,69 @@
+@import './perfect-scrollbar.scss';
+@import './perfect-scrollbar-theme.scss';
+
+.stickers-content {
+  display: table;
+  margin: 17px 0 45px;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.stickers-content .stickers-col-list, .stickers-content .stickers-col-action {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.stickers-content .stickers-col-list {
+  width: 100%;
+  padding: 0;
+  border: 1px solid #000;
+  background: #fff;
+  float: left;
+}
+
+.stickers-content .stickers-col-action {
+  padding-left: 20px;
+  text-align: center;
+  position: relative;
+  width: 212px;
+}
+
+.stickers-content .stickers-col-action .btn-shop-now {
+  margin-bottom: 13px;
+  padding: 14px 11px 9px;
+  font-size: 21px;
+}
+
+.stickers-content .stickers-overflow {
+  border: 1px solid #fff;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-bottom: 27px;
+}
+
+.stickers-content .stickers-overflow .ps-scrollbar-x-rail {
+  bottom: 7px !important;
+  border-right: 10px solid #fff;
+  border-left: 10px solid #fff;
+}
+
+.stickers-content .stickers-list {
+  margin-left: -1px;
+}
+
+.stickers-content .stickers-list .sticker-line {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  display: inline;
+  float: left;
+  border: 1px solid #e3e3e3;
+  margin: -1px -1px 0 0px;
+  text-align: center;
+  padding: 0 0 4px 0;
+  position: relative;
+  cursor: pointer;
+}
