@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import styles from './BaseLayout.scss';
+import GitHubRibbon from '../../components/GitHubRibbon';
 
 const propTypes = {
   children: PropTypes.element,
@@ -9,11 +9,12 @@ class BaseLayout extends Component {
 
   render() {
     return (
-      <div>
-        <h1>base layout</h1>
+      <div className="page">
+        <GitHubRibbon repository="marlonbernardes/sticker"/>
         { this.props.children }
       </div>
     );
+
   }
 }
 
