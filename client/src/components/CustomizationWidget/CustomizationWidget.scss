@@ -48,8 +48,12 @@
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   background: #cccccc;
-  padding: 4px 2px;
+  padding: 6px 2px;
   margin-right: 5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  display: inline-block;
 }
 
 .share a:hover {
@@ -63,8 +67,27 @@
 }
 
 .share span {
-  font-family: "Swiss721BT-BoldCondensed";
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 15px;
   text-transform: uppercase;
   padding-right: 10px;
+}
+
+.link-secondary {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  color: #000;
+  text-decoration: underline;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  padding: 8px 12px 6px;
+  font-size: 15px;
+}
+
+.link-secondary:hover {
+  background: #ebebeb;
 }
