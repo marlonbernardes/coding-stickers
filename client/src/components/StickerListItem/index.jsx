@@ -13,7 +13,7 @@ export default class StickerListItem extends Component {
   }
 
   render() {
-    const { image } = this.props.sticker;
+    const image = this.props.sticker.get('image');
     return (
       <li className="sticker-line">
         <Sticker image={image} onClick={this.handleClick}/>

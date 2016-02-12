@@ -11,7 +11,7 @@ class CustomizationWidget extends Component {
 
   renderSelectedStickers(selectedStickers) {
     return selectedStickers.map((sticker, index) => (
-      <DraggableSticker key={ index } image={ sticker.image }/>
+      <DraggableSticker key={ index } image={ sticker.get('image') }/>
     ));
   }
 

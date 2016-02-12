@@ -1,14 +1,15 @@
 import React from 'react';
 import { expect } from 'chai';
+import { Map } from 'immutable';
 import { shallow, mount } from 'enzyme';
 import StickerListItem from '../../src/components/StickerListItem';
 import Sticker from '../../src/components/Sticker';
 
 describe('<StickerListItem />', () => {
 
-  const stickerData = {
+  const stickerData = new Map({
     image: 'bla.png'
-  };
+  });
 
   it('contains one sticker', () => {
     const rendered = shallow(<StickerListItem sticker={stickerData} />);
