@@ -1,0 +1,79 @@
+@import "reset";
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body, html {
+  height: 100%;
+}
+
+.page {
+  min-height: 100%;
+}
+
+body {
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  width: 92%;
+  max-width: 1170px;
+  position: relative;
+}
+
+.content {
+  padding-left: 42px;
+  padding-right: 42px;
+}
+
+@media (min-width: 640px) {
+  body {
+    /*background-image: url("/img/general/bg.jpg");*/
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+}
+
+strong {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media (max-width: 690px) {
+  body {
+    background-size: 247%;
+    background-position-x: 48%;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 690px) {
+  body {
+    background-size: 167%;
+    background-position-x: 46%;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  body {
+    background-size: 136%;
+    background-position-x: 45%;
+  }
+}
+
+@media (max-width: 1440px) and (min-width: 1024px) {
+  body {
+    background-size: 106%;
+    background-position-x: 28%;
+  }
+}
+
+@media (min-width: 1480px) {
+  .container.container-header {
+    max-width: 1130px;
+  }
+}

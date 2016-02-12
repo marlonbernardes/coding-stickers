@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import GitHubRibbon from '../../components/GitHubRibbon';
+import styles from './BaseLayout.scss';
 
 const propTypes = {
   children: PropTypes.element,
 };
 
 class BaseLayout extends Component {
-
   render() {
     return (
       <div className="page">
@@ -14,7 +14,6 @@ class BaseLayout extends Component {
         { this.props.children }
       </div>
     );
-
   }
 }
 
