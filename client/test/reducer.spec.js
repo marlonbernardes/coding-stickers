@@ -18,4 +18,18 @@ describe('reducer', () => {
     expect(actual).to.eql(expected);
   });
 
+  describe('CLEAR_CUSTOMIZATION', () => {
+    it('should return an empty list', () => {
+      const sticker = new Map({ id: 100, image: 'foo.png' });
+      const actual = reducer(
+        ImmutableList.of(sticker, sticker),
+        { type: 'CLEAR_CUSTOMIZATION' }
+      );
+
+      const expected = ImmutableList.of();
+      expect(actual).to.eql(expected);
+    });
+  })
+
+
 });
