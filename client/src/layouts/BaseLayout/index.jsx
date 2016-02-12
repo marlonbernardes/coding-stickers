@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import GitHubRibbon from '../../components/GitHubRibbon';
-import styles from './BaseLayout.scss';
+import './BaseLayout.scss';
 
 const propTypes = {
   children: PropTypes.element,

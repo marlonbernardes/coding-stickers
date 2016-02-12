@@ -4,7 +4,7 @@ import styles from './NavBar.module.scss';
 export default class NavBar extends Component {
   render() {
     const style = {
-      backgroundImage: 'url(/img/general/logo.svg)'
+      backgroundImage: 'url(/img/general/logo.svg)',
     };
 
     return (

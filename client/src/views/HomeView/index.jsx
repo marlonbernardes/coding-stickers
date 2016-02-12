@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import CustomizationWidget from '../../components/CustomizationWidget';
+import CustomizationContainer from '../../containers/CustomizationContainer';
+import PageHeader from '../../components/PageHeader';
 
 export default class HomeView extends Component {
 
   render() {
     return (
       <div>
-        <h1>home view</h1>
-        <CustomizationWidget />
+        <PageHeader/>
+        <CustomizationContainer />
       </div>
     );
   }

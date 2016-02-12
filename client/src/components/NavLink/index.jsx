@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavBar from '../NavBar';
 import styles from './NavLink.module.scss';
 
 export default class NavLink extends Component {

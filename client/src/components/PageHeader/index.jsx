@@ -9,7 +9,7 @@ export default class PageHeader extends Component {
         <NavBar>
           <NavLink title="Custom Stickers" text="Stickers" href="https://www.stickermule.com/custom-stickers" />
           <NavLink title="Marketplace" text="Marketplace" href="https://www.stickermule.com/marketplace" />
-          <NavLink title="Customize" text="Customize" href="/" active={true} />
+          <NavLink title="Customize" text="Customize" href="/" active />
         </NavBar>
       </div>
     );

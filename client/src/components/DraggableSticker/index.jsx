@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './DraggableSticker.scss'
+import './DraggableSticker.scss';
 
 class DraggableSticker extends Component {
 
@@ -9,19 +9,19 @@ class DraggableSticker extends Component {
       inertia: true,
       onmove: this.onMoveSticker,
       restrict: {
-        restriction: 'parent'
-      }
+        restriction: 'parent',
+      },
     });
   }
 
   onMoveSticker(event) {
-    const target = event.target || event.srcElement,
-      x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-      y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+    const target = event.target || event.srcElement;
+    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
     target.style.position = 'absolute';
-    target.style.top = y + 'px';
-    target.style.left = x + 'px';
+    target.style.top = `${y}px`;
+    target.style.left = `${x}px`;
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
   }
