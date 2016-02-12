@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Sticker from '../Sticker';
-import styles from './StickerList.scss';
 import Ps from 'perfect-scrollbar';
+import './StickerList.scss';
 
 export default class StickerList extends Component {
 

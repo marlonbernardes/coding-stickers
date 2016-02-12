@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StickerList from '../StickerList';
 import DraggableSticker from '../DraggableSticker';
-import styles from './CustomizationWidget.scss';
+import './CustomizationWidget.scss';
 
 const defaultProps = {
   selectedStickers: [],

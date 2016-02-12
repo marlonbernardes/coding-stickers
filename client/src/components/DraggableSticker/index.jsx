@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import style from './DraggableSticker.scss'
+import './DraggableSticker.scss'
 
 class DraggableSticker extends Component {
 
