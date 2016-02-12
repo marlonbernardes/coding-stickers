@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Sticker from '../Sticker';
+import StickerListItem from '../StickerListItem';
 import Ps from 'perfect-scrollbar';
 import './StickerList.scss';
 
@@ -14,12 +14,7 @@ export default class StickerList extends Component {
 
   renderStickers() {
     return this.props.stickers.map((sticker, i) => (
-      <li className="sticker-line" key={i}>
-        <Sticker
-          onClick={() => this.props.onClickSticker(sticker)}
-          image={sticker.image}
-        />
-      </li>
+      <StickerListItem key={i} onClickSticker={this.props.onClickSticker} sticker={sticker} />
     ));
   }
 

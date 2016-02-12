@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme';
 import { List as ImmutableList } from 'immutable';
 import Ps from 'perfect-scrollbar';
 import StickerList from '../../src/components/StickerList';
-import Sticker from '../../src/components/Sticker';
+import StickerListItem from '../../src/components/StickerListItem';
 
 describe('<StickerList />', () => {
   const stickers = ImmutableList.of(
@@ -15,16 +15,7 @@ describe('<StickerList />', () => {
 
   it('displays all the stickers', () => {
     const rendered = shallow(<StickerList stickers={stickers} />);
-    expect(rendered.find(Sticker)).to.have.length(stickers.count());
-  });
-
-  it('renders the sticker images', () => {
-    const rendered = shallow(<StickerList stickers={stickers} />);
-    const firstSticker = rendered.find(Sticker).first();
-    const lastSticker = rendered.find(Sticker).last();
-
-    expect(firstSticker.prop('image')).to.eql('a.png');
-    expect(lastSticker.prop('image')).to.eql('c.png');
+    expect(rendered.find(StickerListItem)).to.have.length(stickers.count());
   });
 
   it('should call PerfectScrollbar.initialize', () => {
