@@ -31,14 +31,11 @@ class CustomizationWidget extends Component {
             </a>
             <div className="share">
               <span>Share it</span>
-              <a className="link-icon fb-share-button">
-                <i className="icon icon-facebook"></i>
+              <a className="icon">
+                <i className="fa fa-facebook"></i>
               </a>
-              <a className="link-icon twitter-share-button">
-                <i className="icon icon-twitter"></i>
-              </a>
-              <a className="link-icon fb-share-button">
-                <i className="icon icon-pinterest"></i>
+              <a className="icon">
+                <i className="fa fa-twitter"></i>
               </a>
             </div>
           </div>
