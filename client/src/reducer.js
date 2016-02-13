@@ -11,6 +11,8 @@ export function customization(state = ImmutableList.of(), action) {
       return state.set(action.index, state.get(action.index).merge(new Map({
         selected: true,
       })));
+    case 'CLEAR_SELECTION':
+      return state.map(sticker => sticker.remove('selected'));
     case 'UPDATE_POSITION':
       return state.set(action.index, state.get(action.index).merge(new Map({
         x: action.x,
