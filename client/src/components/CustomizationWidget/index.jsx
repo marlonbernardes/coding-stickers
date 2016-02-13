@@ -37,15 +37,6 @@ class CustomizationWidget extends Component {
             <a href="#" className="link-secondary" onClick={onClearCustomization}>
               CLEAR CUSTOMIZATION
             </a>
-            <div className="share">
-              <span>Share it</span>
-              <a className="icon">
-                <i className="fa fa-facebook"></i>
-              </a>
-              <a className="icon">
-                <i className="fa fa-twitter"></i>
-              </a>
-            </div>
 
             <input placeholder="Find stickers" onChange={onChangeFilter}/>
           </div>
