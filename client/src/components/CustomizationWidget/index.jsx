@@ -9,9 +9,6 @@ const defaultProps = {
 
 class CustomizationWidget extends Component {
 
-  componentDidMount() {
-    this.props.findStickers();
-  }
   renderSelectedStickers(selectedStickers) {
     return selectedStickers.map((sticker, index) => (
       <DraggableSticker key={ index } image={ sticker.get('image') }/>
@@ -24,6 +21,7 @@ class CustomizationWidget extends Component {
       selectedStickers,
       onClickSticker,
       stickers,
+      onChangeFilter,
     } = this.props;
 
     return (
@@ -48,6 +46,8 @@ class CustomizationWidget extends Component {
                 <i className="fa fa-twitter"></i>
               </a>
             </div>
+
+            <input placeholder="Find stickers" onChange={onChangeFilter}/>
           </div>
           <StickerList
             onClickSticker={onClickSticker}

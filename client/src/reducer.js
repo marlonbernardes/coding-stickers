@@ -19,10 +19,9 @@ export function stickers(state = ImmutableList.of(), action) {
     default:
       return state;
   }
-
 }
 
 export default combineReducers({
   customization,
-  stickers
+  stickers,
 });
