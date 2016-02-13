@@ -14,6 +14,7 @@ export class DraggableStickerContainer extends Component {
         x={ sticker.get('x', 0) }
         y={ sticker.get('y', 0) }
         onClickRemove={ this.props.onClickRemove }
+        onClickOutside={ this.props.onClickOutside }
         onClickSticker={ this.props.onClickSticker }
         widthInInches={ sticker.get('widthInInches') }
         heightInInches={ sticker.get('heightInInches') }
@@ -45,8 +46,11 @@ function mapDispatchToProps(dispatch) {
       dispatch({ type: 'REMOVE_CUSTOMIZATION', index });
     },
     onClickSticker: (index) => {
-      dispatch({ type: 'CLEAR_SELECTION', index });
+      dispatch({ type: 'CLEAR_SELECTION' });
       dispatch({ type: 'SELECT_STICKER', index });
+    },
+    onClickOutside: (event) => {
+      dispatch({ type: 'CLEAR_SELECTION' });
     }
   };
 }

@@ -7,7 +7,7 @@ import DraggableSticker from '../../src/components/DraggableSticker';
 
 describe('<DraggableStickerContainer />', () => {
 
-  it('passes the current position to the draggable sticker', () => {
+  it('renders the draggable sticker', () => {
     const selectedStickers = ImmutableList.of(new Map({
       index: 0,
       x: 10,
@@ -15,10 +15,9 @@ describe('<DraggableStickerContainer />', () => {
       image: 'foo.png',
     }))
     const component = shallow(<DraggableStickerContainer selectedStickers={selectedStickers}/>);
-    const sticker = component.find(DraggableSticker);
-    expect(sticker.prop('x')).to.eql(10);
-    expect(sticker.prop('y')).to.eql(20);
-    expect(sticker.prop('image')).to.eql('foo.png');
+    const html = component.html();
+    expect(html).to.contain('foo.png');
+    expect(html).to.contain('draggable-sticker');
   });
 
 });

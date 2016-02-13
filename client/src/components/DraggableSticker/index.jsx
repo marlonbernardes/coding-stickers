@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import RotateButton from '../RotateButton';
+import enhanceWithClickOutside from 'react-click-outside';
 import './DraggableSticker.scss';
 
-class DraggableSticker extends Component {
+export class DraggableSticker extends Component {
 
   constructor() {
     super();
@@ -16,6 +17,7 @@ class DraggableSticker extends Component {
     const interact = require('interact.js');
     interact(this.refs.element).draggable({
       inertia: true,
+      onstart: this.handleOnClickSticker,
       onmove: this.onMoveSticker.bind(this),
       onend: this.onMoveEnd.bind(this),
       restrict: {
@@ -38,7 +40,6 @@ class DraggableSticker extends Component {
     const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
     const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
-    target.classList.add('draggable-selected')
     target.style.position = 'absolute';
     target.style.top = `${y}px`;
     target.style.left = `${x}px`;
@@ -62,6 +63,10 @@ class DraggableSticker extends Component {
 
   handleOnClickSticker() {
     this.props.onClickSticker(this.props.index);
+  }
+
+  handleClickOutside() {
+    this.props.onClickOutside();
   }
 
   // TODO: Refactor
@@ -106,4 +111,4 @@ class DraggableSticker extends Component {
   }
 }
 
-export default DraggableSticker;
+export default enhanceWithClickOutside(DraggableSticker);
