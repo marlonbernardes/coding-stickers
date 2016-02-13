@@ -30,9 +30,8 @@ class RotateButton extends Component {
   }
 
   render() {
-    const classes = this.props.active ? styles.active : styles.default;
     return (
-      <button ref="element" className={`${classes} rotate-button`}>
+      <button ref="element" className={`${styles.default} rotate-button`}>
         <span style={{ background: 'url(/img/rotate-icon.png)' }} className={styles.button}></span>
       </button>
     );

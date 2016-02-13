@@ -9,6 +9,7 @@ class DraggableSticker extends Component {
     this.handleRotate = this.handleRotate.bind(this);
     this.calculateRotationReferencePoint = this.calculateRotationReferencePoint.bind(this);
     this.handleOnClickRemove = this.handleOnClickRemove.bind(this);
+    this.handleOnClickSticker = this.handleOnClickSticker.bind(this);
   }
 
   componentDidMount() {
@@ -37,6 +38,7 @@ class DraggableSticker extends Component {
     const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
     const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
+    target.classList.add('draggable-selected')
     target.style.position = 'absolute';
     target.style.top = `${y}px`;
     target.style.left = `${x}px`;
@@ -53,8 +55,13 @@ class DraggableSticker extends Component {
     this.refs.element.style.transform = `rotate(${degrees}deg)`;
   }
 
-  handleOnClickRemove() {
+  handleOnClickRemove(event) {
     this.props.onClickRemove(this.props.index);
+    event.stopPropagation();
+  }
+
+  handleOnClickSticker() {
+    this.props.onClickSticker(this.props.index);
   }
 
   // TODO: Refactor
@@ -81,10 +88,11 @@ class DraggableSticker extends Component {
   }
 
   render() {
+    const selectedClass = this.props.selected ? 'draggable-selected' : '';
     return (
       <div ref="element"
-        className="draggable-sticker"
-        onClick={this.props.onClickSticker}
+        className={`draggable-sticker ${selectedClass}`}
+        onClick={this.handleOnClickSticker}
       >
         <img ref="image" src={this.props.image} style={this.calculateImageStyle()}/>
         <button className="delete-button" onClick={this.handleOnClickRemove}><span>✕</span></button>
