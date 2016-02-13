@@ -32,7 +32,7 @@ class DraggableSticker extends Component {
     );
   }
 
-  onMoveSticker() {
+  onMoveSticker(event) {
     const target = this.refs.element;
     const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
     const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
@@ -83,7 +83,7 @@ class DraggableSticker extends Component {
   render() {
     return (
       <div ref="element"
-        className="draggable-sticker draggable-selected"
+        className="draggable-sticker"
         onClick={this.props.onClickSticker}
       >
         <img ref="image" src={this.props.image} style={this.calculateImageStyle()}/>
