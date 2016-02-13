@@ -12,6 +12,8 @@ export class DraggableStickerContainer extends Component {
         image={ sticker.get('image') }
         x={ sticker.get('x', 0) }
         y={ sticker.get('y', 0) }
+        widthInInches={ sticker.get('widthInInches') }
+        heightInInches={ sticker.get('heightInInches') }
         onMoveEnd={ this.props.onMoveEnd }
       />
     ));

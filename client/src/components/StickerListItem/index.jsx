@@ -14,9 +14,16 @@ export default class StickerListItem extends Component {
 
   render() {
     const image = this.props.sticker.get('image');
+    const widthInInches = this.props.sticker.get('widthInInches');
+    const heightInInches = this.props.sticker.get('heightInInches');
     return (
       <li className="sticker-line">
-        <Sticker image={image} onClick={this.handleClick}/>
+        <Sticker
+          image={image}
+          widthInInches={widthInInches}
+          heightInInches={heightInInches}
+          onClick={this.handleClick}
+        />
       </li>
     );
   }

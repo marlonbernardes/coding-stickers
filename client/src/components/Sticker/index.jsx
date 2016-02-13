@@ -8,7 +8,9 @@ export default class Sticker extends Component {
         <div className={styles.sticker} >
           <img className={styles.image} src={this.props.image}/>
         </div>
-        <span>$ 3.00</span>
+        <span>
+          {`${this.props.widthInInches}" x ${this.props.heightInInches}" `}
+        </span>
       </div>
     );
   }

@@ -34,7 +34,11 @@ function mapDispatchToProps(dispatch) {
       const query = event ? event.target.value : '';
       StickersApi.findStickers(query).then(response => {
         const stickers = response.slice(0, 10).map((sticker, i) => (
-          new Map({ id: i, image: sticker.image })
+          new Map({ id: i,
+            image: sticker.image,
+            widthInInches: sticker.dimensions.width,
+            heightInInches: sticker.dimensions.height,
+          })
         ));
         dispatch({ type: 'RECEIVE_STICKERS', stickers });
       });

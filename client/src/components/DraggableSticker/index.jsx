@@ -40,16 +40,41 @@ class DraggableSticker extends Component {
     return parseFloat(element.getAttribute('data-y')) || defaultValue;
   }
 
+  // TODO: Refactor
+  calculateImageStyle() {
+    const imageWidthInPixels = 550;
+
+    // TODO: Extract <Product> component!
+    // MacBook measurements
+    const productMeasurements = {
+      width: 14.13,
+      height: 9.73,
+    };
+
+    // Firstly we determine the product height in pixels, based on its real dimensions (inches)
+    const productHeightInPx =
+      (imageWidthInPixels * productMeasurements.height) / productMeasurements.width;
+    // ... then we compute the stickers height and width based on the product height
+    const height = (productHeightInPx * this.props.heightInInches) / productMeasurements.height;
+    const width = (this.props.widthInInches * height) / this.props.heightInInches;
+    return {
+      width: `${width}px`,
+      height: `${height}px`,
+    };
+  }
+
   render() {
     const style = {
       transform: `translate(${this.props.x}px, ${this.props.y}px)`,
     };
+
     return (
       <div ref="element" className="draggable-sticker" style={ style }>
-        <img src={this.props.image} />
+        <img src={this.props.image} style={this.calculateImageStyle()}/>
       </div>
     );
   }
 }
+
 
 export default DraggableSticker;
