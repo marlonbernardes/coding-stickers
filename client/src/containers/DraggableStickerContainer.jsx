@@ -9,6 +9,7 @@ export class DraggableStickerContainer extends Component {
       <DraggableSticker
         key={ index }
         index={ index }
+        visible={ sticker.get('visible', true)}
         image={ sticker.get('image') }
         x={ sticker.get('x', 0) }
         y={ sticker.get('y', 0) }

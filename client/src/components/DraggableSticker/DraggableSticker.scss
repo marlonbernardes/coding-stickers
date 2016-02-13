@@ -13,6 +13,10 @@
   z-index: 999;
 }
 
+.draggable-sticker.hidden-sticker {
+  display: none;
+}
+
 .draggable-sticker.draggable-selected img {
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;

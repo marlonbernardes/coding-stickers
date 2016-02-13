@@ -6,7 +6,9 @@ export function customization(state = ImmutableList.of(), action) {
     case 'ADD_CUSTOMIZATION':
       return state.push(action.sticker);
     case 'REMOVE_CUSTOMIZATION':
-      return state.delete(action.index);
+      return state.set(action.index, state.get(action.index).merge(new Map({
+        visible: false,
+      })));
     case 'SELECT_STICKER':
       return state.set(action.index, state.get(action.index).merge(new Map({
         selected: true,
