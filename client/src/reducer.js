@@ -5,6 +5,8 @@ export function customization(state = ImmutableList.of(), action) {
   switch (action.type) {
     case 'ADD_CUSTOMIZATION':
       return state.push(action.sticker);
+    case 'REMOVE_CUSTOMIZATION':
+      return state.delete(action.index);
     case 'UPDATE_POSITION':
       return state.set(action.index, state.get(action.index).merge(new Map({
         x: action.x,

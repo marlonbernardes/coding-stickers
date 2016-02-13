@@ -8,11 +8,7 @@ class DraggableSticker extends Component {
     super();
     this.handleRotate = this.handleRotate.bind(this);
     this.calculateRotationReferencePoint = this.calculateRotationReferencePoint.bind(this);
-  }
-
-  calculateRotationReferencePoint() {
-    const rect = this.refs.element.getBoundingClientRect();
-    return [rect.left + (rect.width/2), rect.top + (rect.height/2)];
+    this.handleOnClickRemove = this.handleOnClickRemove.bind(this);
   }
 
   componentDidMount() {
@@ -23,11 +19,12 @@ class DraggableSticker extends Component {
       onend: this.onMoveEnd.bind(this),
       restrict: {
         restriction: '.dropzone',
+        endOnly: true,
       },
     });
   }
 
-  onMoveEnd(event) {
+  onMoveEnd() {
     this.props.onMoveEnd(
       this.props.index,
       (parseFloat(this.refs.element.getAttribute('data-x')) || 0),
@@ -35,7 +32,7 @@ class DraggableSticker extends Component {
     );
   }
 
-  onMoveSticker(event) {
+  onMoveSticker() {
     const target = this.refs.element;
     const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
     const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
@@ -47,8 +44,17 @@ class DraggableSticker extends Component {
     target.setAttribute('data-y', y);
   }
 
+  calculateRotationReferencePoint() {
+    const rect = this.refs.element.getBoundingClientRect();
+    return [rect.left + (rect.width / 2), rect.top + (rect.height / 2)];
+  }
+
   handleRotate(degrees) {
     this.refs.element.style.transform = `rotate(${degrees}deg)`;
+  }
+
+  handleOnClickRemove() {
+    this.props.onClickRemove(this.props.index);
   }
 
   // TODO: Refactor
@@ -76,8 +82,12 @@ class DraggableSticker extends Component {
 
   render() {
     return (
-      <div ref="element" className="draggable-sticker draggable-selected">
+      <div ref="element"
+        className="draggable-sticker draggable-selected"
+        onClick={this.props.onClickSticker}
+      >
         <img ref="image" src={this.props.image} style={this.calculateImageStyle()}/>
+        <button className="delete-button" onClick={this.handleOnClickRemove}><span>✕</span></button>
         <RotateButton
           rotate={this.handleRotate}
           referencePoint={this.calculateRotationReferencePoint}

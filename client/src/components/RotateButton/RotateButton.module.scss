@@ -8,6 +8,11 @@
   right: -16px;
 }
 
+.active {
+  composes: default;
+  display: block;
+}
+
 .button {
   width: 16px;
   height: 16px;

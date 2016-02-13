@@ -19,6 +19,18 @@ describe('reducer', () => {
       expect(actual).to.eql(expected);
     });
 
+    it('should allow a sticker to be removed', () => {
+      const firstSticker = new Map({ index: 0, x: 0, y: 0 });
+      const secondSticker = new Map({ index: 1, x: 0, y: 0 });
+      const expected = ImmutableList.of(firstSticker);
+      const actual = customization(
+        ImmutableList.of(firstSticker, secondSticker),
+        { type: 'REMOVE_CUSTOMIZATION', index: 1 }
+      );
+
+      expect(actual).to.eql(expected);
+    })
+
     it('should allow to clear customizations', () => {
       const sticker = new Map({ index: 100, image: 'foo.png' });
       const actual = customization(

@@ -25,11 +25,15 @@
 }
 
 .draggable-selected .delete-button {
-  top: 0;
-  right: -18px;
+  top: -8px;
+  left: -13px;
   height: 17px;
   width: 30px;
   cursor: pointer;
+  background: transparent;
+  border: 0;
+  display: block;
+  position: absolute;
 }
 
 .draggable-selected .delete-button span {
@@ -38,5 +42,7 @@
   height: 14px;
   color: #fff;
   font-size: 8px;
-  line-height: 12px;
+  line-height: 14px;
+  display: block;
+  border-radius: 50%;
 }
