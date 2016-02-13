@@ -17,7 +17,6 @@ export class CustomizationContainer extends Component {
         onClearCustomization={this.props.clearCustomization}
         onChangeFilter={this.props.findStickers}
         stickers={this.props.stickers}
-        selectedStickers={this.props.selectedStickers}
       />
     );
   }
@@ -25,7 +24,6 @@ export class CustomizationContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    selectedStickers: state.customization,
     stickers: state.stickers,
   };
 }
