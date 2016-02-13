@@ -8,11 +8,9 @@
 }
 
 .draggable-sticker.draggable-selected {
-  border: 2px dashed #898989;
+  border: 1px dashed #B3AFAF;
   display: inline-block;
   z-index: 999;
-  /* or use the shorthand border-image */
-  border-image: url("/static/img/general/border-style.png") 2 round;
 }
 
 .draggable-sticker.draggable-selected img {

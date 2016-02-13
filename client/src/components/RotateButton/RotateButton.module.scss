@@ -1,29 +1,16 @@
 .default {
   background: transparent;
   border: 0;
-  width: 75px;
-  height: 150px;
   display: block;
   cursor: ns-resize;
   position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.active {
-  composes: default;
-  display: block;
+  top: -8px;
+  right: -16px;
 }
 
 .button {
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-  width: 12px;
-  height: 12px;
-  border: 1px solid #fff;
-  background: #000;
+  width: 16px;
+  height: 16px;
   display: block;
+  transform: rotate(180deg);
 }

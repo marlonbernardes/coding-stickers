@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './RotateButton.module.scss';
 
 class RotateButton extends Component {
 
@@ -7,8 +8,6 @@ class RotateButton extends Component {
     interact(this.refs.element).draggable(true)
         .on('dragend', this.onEndRotation.bind(this))
         .on('dragmove', this.onRotate.bind(this));
-
-    // update reference X and Y
   }
 
   // shouldComponentUpdate(nextProps, nextState) {
@@ -31,10 +30,9 @@ class RotateButton extends Component {
   }
 
   render() {
-    console.log('re rendering ROTATE')
     return (
-      <button ref="element" className="rotate-button rotate-button-right">
-        <span></span>
+      <button ref="element" className={styles.default}>
+        <span style={{background: 'url(/img/rotate-icon.png)'}} className={styles.button}></span>
       </button>
     );
   }
