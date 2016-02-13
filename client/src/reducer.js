@@ -12,6 +12,17 @@ export function customization(state = ImmutableList.of(), action) {
   }
 }
 
+export function stickers(state = ImmutableList.of(), action) {
+  switch (action.type) {
+    case 'RECEIVE_STICKERS':
+      return action.stickers;
+    default:
+      return state;
+  }
+
+}
+
 export default combineReducers({
   customization,
+  stickers
 });

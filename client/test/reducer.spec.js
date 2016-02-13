@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { List as ImmutableList, Map } from 'immutable';
-import { customization }  from '../src/reducer';
+import { customization, stickers }  from '../src/reducer';
 
 describe('reducer', () => {
 
@@ -29,5 +29,27 @@ describe('reducer', () => {
       const expected = ImmutableList.of();
       expect(actual).to.eql(expected);
     });
+  });
+
+  describe('stickers', () => {
+    it('should return an empty list as the initial state', () => {
+      const actual = stickers(undefined, {})
+      const expected = ImmutableList.of();
+      expect(actual).to.eql(expected);
+    });
+
+    it('should display only the received stickers', () => {
+      const sticker = new Map({ id: 100, image: 'foo.png' });
+      const currentState = ImmutableList.of(sticker);
+      const expected = ImmutableList.of(sticker, sticker, sticker);
+      const actual = stickers(
+        currentState,
+        {
+          type: 'RECEIVE_STICKERS',
+          stickers: ImmutableList.of(sticker, sticker, sticker)
+        }
+      );
+      expect(actual).to.eql(expected);
+    })
   });
 });
