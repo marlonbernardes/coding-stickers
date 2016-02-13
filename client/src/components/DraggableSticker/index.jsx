@@ -3,11 +3,21 @@ import './DraggableSticker.scss';
 
 class DraggableSticker extends Component {
 
+  constructor() {
+    super();
+    // TODO: Remove direct state access
+    this.state = {
+      x: 0,
+      y: 0
+    }
+  }
+
   componentDidMount() {
     const interact = require('interact.js');
     interact(this.refs.element).draggable({
       inertia: true,
-      onmove: this.onMoveSticker,
+      onmove: this.onMoveSticker.bind(this),
+      //TODO Maybe use "onend" event to track the change ONLY when the movement stops.
       restrict: {
         restriction: 'parent',
       },
@@ -16,20 +26,22 @@ class DraggableSticker extends Component {
 
   onMoveSticker(event) {
     const target = event.target || event.srcElement;
-    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-    target.style.position = 'absolute';
-    target.style.top = `${y}px`;
-    target.style.left = `${x}px`;
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
+    // TODO: Remove setState call and store/retrieve state from redux store.
+    // I need to consider updating the DOM directly and storing the state only when the
+    // movement stops. I don't wanna trigger a billion events to redux store.
+    this.setState({
+      x: this.state.x + event.dx,
+      y: this.state.y + event.dy
+    })
   }
 
-
   render() {
+    // TODO: Retrieve state from redux store
+    const style = {
+      transform: `translate(${this.state.x}px, ${this.state.y}px)`
+    };
     return (
-      <div ref="element" className="draggable-sticker">
+      <div ref="element" className="draggable-sticker" style={ style }>
         <img src={this.props.image} />
       </div>
     );

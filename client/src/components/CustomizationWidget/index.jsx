@@ -9,6 +9,9 @@ const defaultProps = {
 
 class CustomizationWidget extends Component {
 
+  componentDidMount() {
+    this.props.findStickers();
+  }
   renderSelectedStickers(selectedStickers) {
     return selectedStickers.map((sticker, index) => (
       <DraggableSticker key={ index } image={ sticker.get('image') }/>
