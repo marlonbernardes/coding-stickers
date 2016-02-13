@@ -44,7 +44,7 @@
   },
   "scripts": {
     "lint": "eslint --ext js,jsx ./src/**",
-    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --recursive 'test/**/*.@(js|jsx)'",
+    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --watch-extensions js,jsx --recursive 'test/**/*.@(js|jsx)'",
     "test:watch": "npm test -- --watch"
   }
 }
