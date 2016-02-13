@@ -13,20 +13,34 @@ describe('reducer', () => {
     });
 
     it('should allow to add stickers', () => {
-      const sticker = new Map({ id: 100, image: 'foo.png' });
+      const sticker = new Map({ index: 100, image: 'foo.png' });
       const actual = customization(ImmutableList.of(), { type: 'ADD_CUSTOMIZATION', sticker });
-      const expected = ImmutableList.of(new Map({ id: 100, image: 'foo.png' }));
+      const expected = ImmutableList.of(new Map({ index: 100, image: 'foo.png' }));
       expect(actual).to.eql(expected);
     });
 
     it('should allow to clear customizations', () => {
-      const sticker = new Map({ id: 100, image: 'foo.png' });
+      const sticker = new Map({ index: 100, image: 'foo.png' });
       const actual = customization(
         ImmutableList.of(sticker, sticker),
         { type: 'CLEAR_CUSTOMIZATION' }
       );
 
       const expected = ImmutableList.of();
+      expect(actual).to.eql(expected);
+    });
+
+    it(`should allow a customization's position to be updated`, () => {
+      const firstSticker = new Map({ index: 0, x: 0, y: 0 });
+      const secondSticker = new Map({ index: 1, x: 0, y: 0 });
+      const actual = customization(
+        ImmutableList.of(firstSticker, secondSticker),
+        { type: 'UPDATE_POSITION', index: 1, x: 50, y: 60 }
+      );
+      const expected = ImmutableList.of(
+        firstSticker,
+        new Map({ index: 1, x: 50, y: 60 })
+      );
       expect(actual).to.eql(expected);
     });
   });
@@ -39,7 +53,7 @@ describe('reducer', () => {
     });
 
     it('should display only the received stickers', () => {
-      const sticker = new Map({ id: 100, image: 'foo.png' });
+      const sticker = new Map({ index: 100, image: 'foo.png' });
       const currentState = ImmutableList.of(sticker);
       const expected = ImmutableList.of(sticker, sticker, sticker);
       const actual = stickers(

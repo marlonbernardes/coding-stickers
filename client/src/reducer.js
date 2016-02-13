@@ -1,10 +1,15 @@
 import { combineReducers } from 'redux';
-import { List as ImmutableList } from 'immutable';
+import { List as ImmutableList, Map } from 'immutable';
 
 export function customization(state = ImmutableList.of(), action) {
   switch (action.type) {
     case 'ADD_CUSTOMIZATION':
       return state.push(action.sticker);
+    case 'UPDATE_POSITION':
+      return state.set(action.index, state.get(action.index).merge(new Map({
+        x: action.x,
+        y: action.y,
+      })));
     case 'CLEAR_CUSTOMIZATION':
       return ImmutableList.of();
     default:
