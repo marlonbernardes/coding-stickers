@@ -1,6 +1,7 @@
+import { combineReducers } from 'redux';
 import { List as ImmutableList } from 'immutable';
 
-export default function (state = ImmutableList.of(), action) {
+export function customization(state = ImmutableList.of(), action) {
   switch (action.type) {
     case 'ADD_STICKER':
       return state.push(action.sticker);
@@ -10,3 +11,7 @@ export default function (state = ImmutableList.of(), action) {
       return state;
   }
 }
+
+export default combineReducers({
+  customization,
+});

@@ -17,7 +17,7 @@ export class CustomizationContainer extends Component {
 }
 
 function getSelectedStickers(state) {
-  return state;
+  return state.customization;
 }
 
 function getAllStickers() {
