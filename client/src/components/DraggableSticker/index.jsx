@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
+import RotateButton from '../RotateButton';
 import './DraggableSticker.scss';
 
 class DraggableSticker extends Component {
+
+  constructor() {
+    super();
+    this.handleRotate = this.handleRotate.bind(this);
+    this.calculateRotationReferencePoint = this.calculateRotationReferencePoint.bind(this);
+  }
+
+  calculateRotationReferencePoint() {
+    const rect = this.refs.element.getBoundingClientRect();
+    return [rect.left + (rect.width/2), rect.top + (rect.height/2)];
+  }
 
   componentDidMount() {
     const interact = require('interact.js');
@@ -18,26 +30,25 @@ class DraggableSticker extends Component {
   onMoveEnd(event) {
     this.props.onMoveEnd(
       this.props.index,
-      this.getCurrentX(event.target),
-      this.getCurrentY(event.target)
+      (parseFloat(this.refs.element.getAttribute('data-x')) || 0),
+      (parseFloat(this.refs.element.getAttribute('data-y')) || 0)
     );
   }
 
   onMoveSticker(event) {
-    const target = event.target;
-    const x = this.getCurrentX(target, this.props.x) + event.dx;
-    const y = this.getCurrentY(target, this.props.y) + event.dy;
-    target.style.transform = `translate(${x}px, ${y}px)`;
+    const target = this.refs.element;
+    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+    target.style.position = 'absolute';
+    target.style.top = `${y}px`;
+    target.style.left = `${x}px`;
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
   }
 
-  getCurrentX(element, defaultValue = 0) {
-    return parseFloat(element.getAttribute('data-x')) || defaultValue;
-  }
-
-  getCurrentY(element, defaultValue = 0) {
-    return parseFloat(element.getAttribute('data-y')) || defaultValue;
+  handleRotate(degrees) {
+    this.refs.element.style.transform = `rotate(${degrees}deg)`;
   }
 
   // TODO: Refactor
@@ -64,17 +75,16 @@ class DraggableSticker extends Component {
   }
 
   render() {
-    const style = {
-      transform: `translate(${this.props.x}px, ${this.props.y}px)`,
-    };
-
     return (
-      <div ref="element" className="draggable-sticker" style={ style }>
-        <img src={this.props.image} style={this.calculateImageStyle()}/>
+      <div ref="element" className="draggable-sticker draggable-selected">
+        <img ref="image" src={this.props.image} style={this.calculateImageStyle()}/>
+        <RotateButton
+          rotate={this.handleRotate}
+          referencePoint={this.calculateRotationReferencePoint}
+        />
       </div>
     );
   }
 }
-
 
 export default DraggableSticker;

@@ -7,10 +7,6 @@
   z-index: 2;
 }
 
-.draggable-sticker button {
-  display: none;
-}
-
 .draggable-sticker.draggable-selected {
   border: 2px dashed #898989;
   display: inline-block;
@@ -45,41 +41,4 @@
   color: #fff;
   font-size: 8px;
   line-height: 12px;
-}
-
-.draggable-selected button {
-  background: transparent;
-  border: 0;
-  width: 75px;
-  height: 150px;
-  display: block;
-  cursor: ns-resize;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.draggable-selected button span {
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-  width: 12px;
-  height: 12px;
-  border: 1px solid #fff;
-  background: #000;
-  display: block;
-}
-
-.rotate-button-left {
-  left: -62px;
-}
-
-.rotate-button-left span {
-  float: right;
-}
-
-.rotate-button-right {
-  right: -62px;
 }
