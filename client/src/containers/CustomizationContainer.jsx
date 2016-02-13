@@ -7,7 +7,7 @@ export class CustomizationContainer extends Component {
   render() {
     return (
       <CustomizationWidget
-        onClickSticker={this.props.addSticker}
+        onClickSticker={this.props.addCustomization}
         onClearCustomization={this.props.clearCustomization}
         stickers={this.props.stickers}
         selectedStickers={this.props.selectedStickers}
@@ -25,7 +25,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addSticker: (sticker) => {
+    addCustomization: (sticker) => {
       dispatch({ type: 'ADD_CUSTOMIZATION', sticker });
     },
     clearCustomization: () => {
