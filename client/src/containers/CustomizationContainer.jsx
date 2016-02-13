@@ -16,30 +16,17 @@ export class CustomizationContainer extends Component {
   }
 }
 
-function getSelectedStickers(state) {
-  return state.customization;
-}
-
-function getAllStickers() {
-  const result = Array.apply(null, { length: 100 })
-    .map((el, i) => (new Map({
-      image: 'https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/295/medium/1393320349/html5-stickers.jpg',
-      id: i,
-    })));
-  return ImmutableList.of(...result);
-}
-
 function mapStateToProps(state) {
   return {
-    selectedStickers: getSelectedStickers(state),
-    stickers: getAllStickers(state),
+    selectedStickers: state.customization,
+    stickers: state.stickers,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     addSticker: (sticker) => {
-      dispatch({ type: 'ADD_STICKER', sticker });
+      dispatch({ type: 'ADD_CUSTOMIZATION', sticker });
     },
     clearCustomization: () => {
       dispatch({ type: 'CLEAR_CUSTOMIZATION' });

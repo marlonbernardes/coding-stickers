@@ -3,7 +3,7 @@ import { List as ImmutableList } from 'immutable';
 
 export function customization(state = ImmutableList.of(), action) {
   switch (action.type) {
-    case 'ADD_STICKER':
+    case 'ADD_CUSTOMIZATION':
       return state.push(action.sticker);
     case 'CLEAR_CUSTOMIZATION':
       return ImmutableList.of();
