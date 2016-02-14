@@ -6,10 +6,6 @@
   min-width: 790px;
 }
 
-.product-view {
-  padding: 22px 44px 22px;
-}
-
 .product-view .product-img {
   text-align: center;
   position: relative;
@@ -19,10 +15,6 @@
 
 .product-view .product-img > img {
   width: 100%;
-}
-
-.stickers-header {
-  position: relative;
 }
 
 .stickers {
@@ -90,4 +82,12 @@
 
 .link-secondary:hover {
   background: #ebebeb;
+}
+
+.pagination-button {
+  background: transparent;
+  width: 50%;
+  border: 1px solid #f2f2f2;
+  height: 30px;
+  cursor: pointer;
 }
