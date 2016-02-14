@@ -12,15 +12,10 @@ export default class StickerList extends Component {
 
   render() {
     return (
-      <div>
-        <div className="nl">
-          <div className="nl-overflow" ref="stickerContainer">
-            <ul className="nl-ul">
-              { this.renderStickers() }
-            </ul>
-          </div>
-        </div>
-
+      <div className="sticker-list-container">
+        <ul>
+          { this.renderStickers() }
+        </ul>
       </div>
     );
   }
