@@ -45,9 +45,10 @@ class CustomizationWidget extends Component {
 
             <input placeholder="Find stickers" onChange={onChangeFilter}/>
             <select onChange={this.handleProductDimensionsChange}>
-              <option data-width="14.13" data-height="9.73">{`MacBook Pro 17"`}</option>
-              <option data-width="5" data-height="3">{`MacBook Pro 19"`}</option>
-              <option data-width="10" data-height="8">{`MacBook Pro 15"`}</option>
+              <option data-width="11.8" data-height="7.56">{`MacBook Air 11"`}</option>
+              <option data-width="12.8" data-height="8.94">{`MacBook Air 13"`}</option>
+              <option data-width="12.35" data-height="8.62">{`MacBook Pro 13"`}</option>
+              <option data-width="14.13" data-height="9.73">{`MacBook Pro 15"`}</option>
             </select>
           </div>
           <StickerList

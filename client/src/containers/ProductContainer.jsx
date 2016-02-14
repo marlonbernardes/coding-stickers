@@ -5,14 +5,14 @@ export class ProductContainer extends Component {
 
   componentDidMount() {
     this.props.changeProductDimensions({
-      widthInInches: 14.13,
-      heightInInches: 19.73,
+      widthInInches: 11.8,
+      heightInInches: 7.56,
     });
   }
 
   render() {
     return (
-      <img id="custom" src="/img/product.jpg" />
+      <img id="custom" src="/img/macbook.jpg" />
     );
   }
 }
