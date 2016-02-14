@@ -87,19 +87,5 @@ describe('reducer', () => {
       const expected = ImmutableList.of();
       expect(actual).to.eql(expected);
     });
-
-    it('should display only the received stickers', () => {
-      const sticker = new Map({ index: 100, image: 'foo.png' });
-      const currentState = ImmutableList.of(sticker);
-      const expected = ImmutableList.of(sticker, sticker, sticker);
-      const actual = stickers(
-        currentState,
-        {
-          type: 'RECEIVE_STICKERS',
-          stickers: ImmutableList.of(sticker, sticker, sticker)
-        }
-      );
-      expect(actual).to.eql(expected);
-    })
   });
 });
