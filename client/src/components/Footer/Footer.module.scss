@@ -1,22 +1,28 @@
 .container {
-   position: fixed;
    text-align: center;
-   bottom: 0;
-   height: 40px;
-   width: 100%;
    background: #1abc9c;
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   height: 45px;
+   width: 100%;
 }
 
 .link {
   color: #fff;
+  text-decoration: none;
+  background: #1abc9c;
+  width: 100%;
+  float: left;
+  padding: 10px 0;
 }
 
 .text {
-  height: 100%;
   vertical-align: middle;
-  display: inline-block;
+  line-height: 25px;
 }
 
 .image {
-  padding: 8px 10px;
+  vertical-align: middle;
+  margin-left: 10px;
 }
