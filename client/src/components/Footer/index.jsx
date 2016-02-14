@@ -6,7 +6,7 @@ export default class Footer extends Component {
     return (
       <div className={styles.container}>
         <a className={styles.link} href="https://www.stickermule.com">
-          <span className={styles.text}>Stickers by</span> 
+          <span className={styles.text}>Stickers by</span>
           <img className={styles.image} src="/img/general/logo.svg"/>
         </a>
       </div>
