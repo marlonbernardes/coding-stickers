@@ -11,12 +11,7 @@ export class CustomizationContainer extends Component {
 
   render() {
     return (
-      <CustomizationWidget
-        onChangeFilter={this.props.findStickers}
-        onChangePage={this.props.changePage}
-        currentPage={this.props.currentPage}
-        totalPages={this.props.totalPages}
-      />
+      <CustomizationWidget onChangeFilter={this.props.findStickers} />
     );
   }
 }
@@ -24,8 +19,6 @@ export class CustomizationContainer extends Component {
 function mapStateToProps(state) {
   return {
     stickers: state.stickers,
-    currentPage: state.pagination.get('current'),
-    totalPages: Math.floor(state.stickers.size / state.pagination.get('perPage')) + 1,
   };
 }
 
@@ -37,9 +30,6 @@ function mapDispatchToProps(dispatch) {
         dispatch({ type: 'CHANGE_PAGE', value: 1 });
         dispatch({ type: 'RECEIVE_STICKERS', stickers: response });
       });
-    },
-    changePage: (pageNumber) => {
-      dispatch({ type: 'CHANGE_PAGE', value: pageNumber });
     },
   };
 }

@@ -2,6 +2,28 @@ import React, { Component } from 'react';
 import { Range } from 'immutable';
 import styles from './Pagination.module.scss';
 
+export const NUMBER_OF_PAGES = 9;
+
+function getStartingPageNumber(current, numberOfPages) {
+  const pagesBeforeCurrent = Math.floor(numberOfPages / 2);
+  return Math.max(1, current - pagesBeforeCurrent);
+}
+
+function getEndingPageNumber(current, total, numberOfPages) {
+  const pagesAfterCurrent = Math.ceil(numberOfPages / 2);
+  const end = Math.min(total + 1, current + pagesAfterCurrent);
+  // ensure the end is lesser than the total pages
+  const inBoundsEnd = Math.max(end, Math.min(numberOfPages + 1, total));
+  return inBoundsEnd;
+}
+
+export function pageRange(currentPage, totalPages, numberOfPages = NUMBER_OF_PAGES) {
+  return new Range(
+    getStartingPageNumber(currentPage, numberOfPages),
+    getEndingPageNumber(currentPage, totalPages, numberOfPages)
+  );
+}
+
 export default class Pagination extends Component {
 
   constructor() {
@@ -11,14 +33,16 @@ export default class Pagination extends Component {
     this.previousPage = this.previousPage.bind(this);
   }
 
-  nextPage() {
+  nextPage(event) {
+    event.preventDefault();
     const nextPageDisabled = this.props.currentPage >= this.props.totalPages;
     if (!nextPageDisabled) {
       this.props.onChangePage(this.props.currentPage + 1);
     }
   }
 
-  previousPage() {
+  previousPage(event) {
+    event.preventDefault();
     const previousPageDisabled = this.props.currentPage <= 1;
     if (!previousPageDisabled) {
       this.props.onChangePage(this.props.currentPage - 1);
@@ -35,7 +59,12 @@ export default class Pagination extends Component {
     const className = (page === this.props.currentPage ? styles.activeButton : styles.button);
     return (
       <li key={page} className={styles.item}>
-        <a className={className} data-page-number={page} onClick={this.handleClick} href="#">
+        <a
+          className={`${className} page-button`}
+          data-page-number={page}
+          onClick={this.handleClick}
+          href="#"
+        >
           {page}
         </a>
       </li>
@@ -43,9 +72,8 @@ export default class Pagination extends Component {
   }
 
   render() {
-    const start = Math.max(1, this.props.currentPage - 4);
-    const end = Math.min(this.props.totalPages + 1, this.props.currentPage + 5);
-    const range = new Range(start, Math.max(end, Math.min(10, this.props.totalPages)));
+    const { currentPage, totalPages } = this.props;
+    const range = pageRange(currentPage, totalPages);
     const paginationButtons = range.map(this.renderPaginationButton.bind(this));
 
     return (

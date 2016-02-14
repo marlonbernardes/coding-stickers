@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StickerListContainer from '../../containers/StickerListContainer';
 import ProductContainer from '../../containers/ProductContainer';
-import Pagination from '../Pagination';
+import PaginationContainer from '../../containers/PaginationContainer';
 import './CustomizationWidget.scss';
 
 const defaultProps = {
@@ -20,12 +20,7 @@ class CustomizationWidget extends Component {
             <input placeholder="Search stickers" onChange={onChangeFilter}/>
           </div>
           <StickerListContainer />
-          <Pagination
-            totalPages={this.props.totalPages}
-            onChangePage={this.props.onChangePage}
-            currentPage={this.props.currentPage}
-          />
-
+          <PaginationContainer />
         </div>
     </div>
     );
