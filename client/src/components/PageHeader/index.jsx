@@ -8,9 +8,9 @@ export default class PageHeader extends Component {
     return (
       <div>
         <NavBar>
-          <NavLink title="Custom Stickers" text="Stickers" href="https://www.stickermule.com/custom-stickers" />
-          <NavLink title="Marketplace" text="Marketplace" href="https://www.stickermule.com/marketplace" />
-          <NavLink title="Customize" text="Customize" href="/" active />
+          <NavLink title="Customize" text="Try 'em!" href="/" active />
+          <NavLink title="Buy stickers @ stickermule.com" text="Buy 'em!" href="https://www.stickermule.com/marketplace" />
+          <NavLink title="Create your own custom stickers @stickermule.com" text="Create your own" href="https://www.stickermule.com/custom-stickers" />
         </NavBar>
         <SubHeader />
       </div>
