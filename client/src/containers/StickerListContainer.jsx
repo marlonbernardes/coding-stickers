@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import StickerList from '../components/StickerList';
 
+function currentPageStickers(state) {
+  const { stickers, pagination } = state;
+  const page = pagination.get('current') - 1;
+  const perPage = pagination.get('perPage');
+  return stickers.slice(page * perPage, (page * perPage) + perPage);
+}
+
 export class StickerListContainer extends Component {
 
   render() {
@@ -26,13 +33,6 @@ function mapDispatchToProps(dispatch) {
       dispatch({ type: 'ADD_CUSTOMIZATION', sticker });
     },
   };
-}
-
-function currentPageStickers(state) {
-  const { stickers, pagination } = state;
-  const page = pagination.get('current') - 1;
-  const perPage = pagination.get('perPage');
-  return stickers.slice(page * perPage, (page * perPage) + perPage);
 }
 
 export default connect(

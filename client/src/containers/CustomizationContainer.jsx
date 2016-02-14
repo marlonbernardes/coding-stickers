@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Map } from 'immutable';
 import CustomizationWidget from '../components/CustomizationWidget';
 import StickersApi from '../api/stickers';
 
@@ -26,7 +25,7 @@ function mapStateToProps(state) {
   return {
     stickers: state.stickers,
     currentPage: state.pagination.get('current'),
-    totalPages: Math.floor(state.stickers.size / state.pagination.get('perPage')) + 1
+    totalPages: Math.floor(state.stickers.size / state.pagination.get('perPage')) + 1,
   };
 }
 
@@ -35,13 +34,13 @@ function mapDispatchToProps(dispatch) {
     findStickers: (event) => {
       const query = event ? event.target.value : '';
       StickersApi.findStickers(query).then(response => {
-        dispatch( { type: 'CHANGE_PAGE', value: 1 });
+        dispatch({ type: 'CHANGE_PAGE', value: 1 });
         dispatch({ type: 'RECEIVE_STICKERS', stickers: response });
       });
     },
     changePage: (pageNumber) => {
-      dispatch( { type: 'CHANGE_PAGE', value: pageNumber });
-    }
+      dispatch({ type: 'CHANGE_PAGE', value: pageNumber });
+    },
   };
 }
 

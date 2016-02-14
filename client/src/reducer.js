@@ -1,6 +1,15 @@
 import { combineReducers } from 'redux';
 import { List as ImmutableList, Map } from 'immutable';
 
+function mapSticker(sticker, i) {
+  return new Map({ id: i,
+    image: sticker.image,
+    widthInInches: sticker.dimensions.width,
+    heightInInches: sticker.dimensions.height,
+  });
+}
+
+
 export function customization(state = ImmutableList.of(), action) {
   switch (action.type) {
     case 'ADD_CUSTOMIZATION':
@@ -14,7 +23,7 @@ export function customization(state = ImmutableList.of(), action) {
         selected: true,
       })));
     case 'CLEAR_SELECTION':
-      return state.map(sticker => sticker.remove('selected'));
+      return state.map(s => s.remove('selected'));
     case 'UPDATE_POSITION':
       return state.set(action.index, state.get(action.index).merge(new Map({
         x: action.x,
@@ -42,7 +51,7 @@ export function product(state = new Map(), action) {
 export function stickers(state = ImmutableList.of(), action) {
   switch (action.type) {
     case 'RECEIVE_STICKERS':
-      return ImmutableList.of(...action.stickers.map(sticker));
+      return ImmutableList.of(...action.stickers.map(mapSticker));
     default:
       return state;
   }
@@ -56,16 +65,6 @@ export function pagination(state = new Map({ current: 1, perPage: 9 }), action) 
       return state;
   }
 }
-
-function sticker(sticker, i) {
-  return new Map({ id: i,
-    image: sticker.image,
-    widthInInches: sticker.dimensions.width,
-    heightInInches: sticker.dimensions.height,
-  });
-
-}
-
 
 export default combineReducers({
   customization,
