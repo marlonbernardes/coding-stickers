@@ -50,15 +50,17 @@ export default class Pagination extends Component {
     const paginationButtons = range.map(this.renderPaginationButton.bind(this));
 
     return (
-      <ul className={styles.list}>
-        <li className={styles.item}>
-          <a href="#" className={styles.button} onClick={this.previousPage}>&lt;</a>
-        </li>
-        {paginationButtons}
-        <li className={styles.item}>
-          <a href="#" className={styles.button} onClick={this.nextPage}>&gt;</a>
-        </li>
-      </ul>
+      <div className={styles.container}>
+        <ul className={styles.list}>
+          <li className={styles.item}>
+            <a href="#" className={styles.button} onClick={this.previousPage}>&lt;</a>
+          </li>
+          {paginationButtons}
+          <li className={styles.item}>
+            <a href="#" className={styles.button} onClick={this.nextPage}>&gt;</a>
+          </li>
+        </ul>
+      </div>
     );
   }
 }
