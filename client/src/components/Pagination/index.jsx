@@ -27,7 +27,7 @@ export default class Pagination extends Component {
 
   handleClick(event) {
     event.preventDefault();
-    const nextPage = parseInt(event.target.getAttribute('data-page-number'));
+    const nextPage = parseInt(event.target.getAttribute('data-page-number'), 10);
     this.props.onChangePage(nextPage)
   }
 
@@ -46,13 +46,13 @@ export default class Pagination extends Component {
   render() {
     const start = Math.max(1, this.props.currentPage - 4);
     const end = Math.min(this.props.totalPages + 1, this.props.currentPage + 5);
-    const range = Range(start, Math.max(end, Math.min(10, this.props.totalPages)));
+    const range = new Range(start, Math.max(end, Math.min(10, this.props.totalPages)));
     const paginationButtons = range.map(this.renderPaginationButton.bind(this));
 
     return (
       <ul className={styles.list}>
         <li className={styles.item}>
-          <a href="#" className={styles.button}  onClick={this.previousPage}>&lt;</a>
+          <a href="#" className={styles.button} onClick={this.previousPage}>&lt;</a>
         </li>
         {paginationButtons}
         <li className={styles.item}>
