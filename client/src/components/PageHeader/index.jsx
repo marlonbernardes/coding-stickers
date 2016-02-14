@@ -12,7 +12,7 @@ export default class PageHeader extends Component {
           <NavLink title="Buy stickers @ stickermule.com" text="Buy 'em!" href="https://www.stickermule.com/marketplace" />
           <NavLink title="Create your own custom stickers @stickermule.com" text="Create your own" href="https://www.stickermule.com/custom-stickers" />
         </NavBar>
-        <SubHeader />
+        <SubHeader image="/img/general/subheader.jpg"/>
       </div>
     );
   }
