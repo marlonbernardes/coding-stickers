@@ -5,22 +5,17 @@
   line-height: normal;
 }
 
-.logo {
-  position: relative;
-  padding: 0 15px 0 0;
-  width: 165px;
-  height: 42px;
-  background-size: 150px auto;
-  background-position: 0% 45%;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  text-indent: -7000px;
-  float: left;
-  display: block;
-}
-
 .list {
   margin: 0;
   padding: 0;
   float: left;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 42px;
+  color: #fff;
+  float: left;
+  margin-right: 20px;
 }
