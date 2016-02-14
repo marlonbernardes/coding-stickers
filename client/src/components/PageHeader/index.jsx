@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from '../NavBar';
 import NavLink from '../NavLink';
+import SubHeader from '../SubHeader';
 
 export default class PageHeader extends Component {
   render() {
@@ -11,6 +12,7 @@ export default class PageHeader extends Component {
           <NavLink title="Marketplace" text="Marketplace" href="https://www.stickermule.com/marketplace" />
           <NavLink title="Customize" text="Customize" href="/" active />
         </NavBar>
+        <SubHeader />
       </div>
     );
   }

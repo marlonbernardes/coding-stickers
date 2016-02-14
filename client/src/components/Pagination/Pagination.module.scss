@@ -1,0 +1,36 @@
+.list {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  background: #d6dbdf;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+
+.item {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.button {
+  display: inline-block;
+  min-width: 41px;
+  min-height: 41px;
+  padding: 12px 10px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-left: 2px solid #e4e7ea;
+  text-decoration: none;
+  transition: .25s ease-out;
+}
+
+.activeButton {
+  composes: button;
+  background-color: #1abc9c;
+  color: #fff;
+  border-color: #dfe2e5;
+}

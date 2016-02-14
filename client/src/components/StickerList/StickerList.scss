@@ -83,21 +83,30 @@
 .content.stickers {
   display: inline-block;
   width: 584px;
+  background: #edeff1;
+  padding: 24px 23px 20px;
+  border-radius: 6px;
 }
 
 .stickers-search {
   width: 100%;
-  border: 1px solid #f2f2f2;
-  padding: 8px 10px;
 }
 
 .stickers-search input{
-  background: transparent;
-  margin-left: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  line-height: 1.467;
+  color: #34495e;
+  transition: border .25s linear,color .25s linear,background-color .25s linear;
+  background: #fff;
   height: 100%;
-  border: 0;
+  width: 100%;
   outline: 0;
-  width: 300px;
+  border: 2px solid #bdc3c7;
+}
+
+.stickers-search input:focus {
+  border-color: #1abc9c;
 }
 
 
