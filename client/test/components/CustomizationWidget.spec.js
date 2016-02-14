@@ -4,8 +4,8 @@ import { shallow } from 'enzyme';
 import CustomizationWidget from '../../src/components/CustomizationWidget';
 
 describe('<CustomizationWidget />', () => {
-  it('renders the component', () => {
+  it('renders the search input', () => {
     const rendered = shallow(<CustomizationWidget />);
-    expect(rendered.find('.product-view')).to.have.length(1);
+    expect(rendered.find('.stickers-search')).to.have.length(1);
   });
 });
