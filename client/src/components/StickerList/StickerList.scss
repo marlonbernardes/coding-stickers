@@ -61,14 +61,18 @@
   cursor: pointer;
 }
 
-// novo
 .product-view {
   width: 580px;
   display: inline-block;
 }
 
-.product-header {
-  margin-bottom: 10px;
+.product-footer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.product-footer button {
+  margin: 0 10px;
 }
 
 .content.stickers {
@@ -100,7 +104,6 @@
   border-color: #1abc9c;
 }
 
-
 .my-footer button {
   width: 100%;
   border: 1px solid;
@@ -108,7 +111,6 @@
 }
 
 .nl {
-  overflow: scroll;
   margin: 20px 0;
 }
 

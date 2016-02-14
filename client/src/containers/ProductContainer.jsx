@@ -23,20 +23,20 @@ export class ProductContainer extends Component {
   render() {
     return (
       <div className="product-view">
-        <div className="product-header">
-          <a href="#" className="link-secondary" onClick={this.props.clearCustomization}>
+        <div className="product-img dropzone">
+          <img id="custom" src="/img/macbook.jpg" />
+          <DraggableStickerContainer />
+        </div>
+        <div className="product-footer">
+          <button href="#" onClick={this.props.clearCustomization}>
             CLEAR CUSTOMIZATION
-          </a>
+          </button>
           <select onChange={this.handleProductDimensionsChange}>
             <option data-width="11.8" data-height="7.56">{`MacBook Air 11"`}</option>
             <option data-width="12.8" data-height="8.94">{`MacBook Air 13"`}</option>
             <option data-width="12.35" data-height="8.62">{`MacBook Pro 13"`}</option>
             <option data-width="14.13" data-height="9.73">{`MacBook Pro 15"`}</option>
           </select>
-        </div>
-        <div className="product-img dropzone">
-          <img id="custom" src="/img/macbook.jpg" />
-          <DraggableStickerContainer />
         </div>
       </div>
     );
