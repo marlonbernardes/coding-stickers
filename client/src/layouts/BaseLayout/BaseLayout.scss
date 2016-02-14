@@ -17,7 +17,12 @@ body {
   background-color: #fff;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
+input {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size: 17px;
 }
 
 .container {
@@ -38,10 +43,6 @@ body {
     background-repeat: no-repeat;
     background-position: center top;
   }
-}
-
-strong {
-  font-family: 'Open Sans', sans-serif;
 }
 
 @media (max-width: 690px) {
