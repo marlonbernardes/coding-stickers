@@ -17,7 +17,7 @@ class CustomizationWidget extends Component {
         <ProductContainer />
         <div className="content stickers">
           <div className="stickers-search">
-            <input placeholder="Find stickers" onChange={onChangeFilter}/>
+            <input placeholder="Search stickers" onChange={onChangeFilter}/>
           </div>
           <StickerListContainer />
           <Pagination
