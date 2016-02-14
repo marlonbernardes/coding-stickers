@@ -12,9 +12,4 @@ describe('<HomeView />', () => {
     expect(component.find(CustomizationContainer)).to.have.length(1);
   });
 
-  it('renders the page header', () => {
-    const component = shallow(<HomeView />);
-    expect(component.find(PageHeader)).to.have.length(1);
-  });
-
 });
