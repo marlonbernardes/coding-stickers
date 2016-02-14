@@ -5,13 +5,6 @@ import './StickerList.scss';
 
 export default class StickerList extends Component {
 
-  componentDidMount() {
-    Ps.initialize(this.refs.stickerContainer, {
-      suppressScrollY: true,
-      minScrollbarLength: 80,
-    });
-  }
-
   renderStickers() {
     return this.props.stickers.map((sticker, i) => (
       <StickerListItem key={i} onClickSticker={this.props.onClickSticker} sticker={sticker} />
@@ -20,14 +13,15 @@ export default class StickerList extends Component {
 
   render() {
     return (
-      <div className="stickers-content">
-        <div className="stickers-col-list">
-          <div className="stickers-overflow" ref="stickerContainer">
-            <ul className="stickers-list" style={{ width: '115000px' }}>
+      <div>
+        <div className="nl">
+          <div className="nl-overflow" ref="stickerContainer">
+            <ul className="nl-ul">
               { this.renderStickers() }
             </ul>
           </div>
         </div>
+
       </div>
     );
   }

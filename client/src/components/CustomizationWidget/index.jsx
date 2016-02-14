@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import StickerList from '../StickerList';
+import StickerListContainer from '../../containers/StickerListContainer';
 import ProductContainer from '../../containers/ProductContainer';
-import DraggableStickerContainer from '../../containers/DraggableStickerContainer';
 import './CustomizationWidget.scss';
 
 const defaultProps = {
@@ -11,52 +10,47 @@ class CustomizationWidget extends Component {
 
   constructor() {
     super();
-    this.handleProductDimensionsChange = this.handleProductDimensionsChange.bind(this);
+    this.nextPage = this.nextPage.bind(this);
+    this.previousPage = this.previousPage.bind(this);
   }
 
-  handleProductDimensionsChange(event) {
-    const selectedOption = event.target.selectedOptions[0];
-    const width = parseFloat(selectedOption.getAttribute('data-width'));
-    const height = parseFloat(selectedOption.getAttribute('data-height'));
-    this.props.changeProductDimensions(width, height);
+  nextPage() {
+    this.props.onChangePage(this.props.currentPage + 1);
+  }
+
+  previousPage() {
+    this.props.onChangePage(this.props.currentPage - 1);
   }
 
   render() {
-    const {
-      onClearCustomization,
-      onClickSticker,
-      stickers,
-      onChangeFilter,
-    } = this.props;
+    const { onChangeFilter } = this.props;
+    const previousPageDisabled = this.props.currentPage <= 1;
+    const nextPageDisabled = this.props.currentPage >= this.props.totalPages;
 
     return (
       <div className="container container-product">
-        <div className="product-view">
-          <div className="product-img dropzone">
-            <ProductContainer />
-            <DraggableStickerContainer />
-          </div>
-        </div>
+        <ProductContainer />
         <div className="content stickers">
-          <div className="stickers-header">
-            <a href="#" className="link-secondary" onClick={onClearCustomization}>
-              CLEAR CUSTOMIZATION
-            </a>
-
+          <div className="stickers-search">
+            <i className="fa fa-search"></i>
             <input placeholder="Find stickers" onChange={onChangeFilter}/>
-            <select onChange={this.handleProductDimensionsChange}>
-              <option data-width="11.8" data-height="7.56">{`MacBook Air 11"`}</option>
-              <option data-width="12.8" data-height="8.94">{`MacBook Air 13"`}</option>
-              <option data-width="12.35" data-height="8.62">{`MacBook Pro 13"`}</option>
-              <option data-width="14.13" data-height="9.73">{`MacBook Pro 15"`}</option>
-            </select>
           </div>
-          <StickerList
-            onClickSticker={onClickSticker}
-            onClearCustomization={onClearCustomization}
-            stickers={stickers}
-          />
-      </div>
+          <StickerListContainer />
+          <button
+            className="pagination-button"
+            onClick={this.previousPage}
+            disabled={previousPageDisabled}
+          >
+            Previous
+          </button>
+          <button
+            className="pagination-button"
+            onClick={this.nextPage}
+            disabled={nextPageDisabled}
+          >
+            Next
+          </button>
+        </div>
     </div>
     );
   }

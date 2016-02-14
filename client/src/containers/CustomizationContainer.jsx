@@ -13,11 +13,10 @@ export class CustomizationContainer extends Component {
   render() {
     return (
       <CustomizationWidget
-        onClickSticker={this.props.addCustomization}
-        onClearCustomization={this.props.clearCustomization}
-        changeProductDimensions={this.props.changeProductDimensions}
         onChangeFilter={this.props.findStickers}
-        stickers={this.props.stickers}
+        onChangePage={this.props.changePage}
+        currentPage={this.props.currentPage}
+        totalPages={this.props.totalPages}
       />
     );
   }
@@ -26,6 +25,8 @@ export class CustomizationContainer extends Component {
 function mapStateToProps(state) {
   return {
     stickers: state.stickers,
+    currentPage: state.pagination.get('current'),
+    totalPages: Math.floor(state.stickers.size / state.pagination.get('perPage')) + 1
   };
 }
 
@@ -34,25 +35,13 @@ function mapDispatchToProps(dispatch) {
     findStickers: (event) => {
       const query = event ? event.target.value : '';
       StickersApi.findStickers(query).then(response => {
-        const stickers = response.slice(0, 10).map((sticker, i) => (
-          new Map({ id: i,
-            image: sticker.image,
-            widthInInches: sticker.dimensions.width,
-            heightInInches: sticker.dimensions.height,
-          })
-        ));
-        dispatch({ type: 'RECEIVE_STICKERS', stickers });
+        dispatch( { type: 'CHANGE_PAGE', value: 1 });
+        dispatch({ type: 'RECEIVE_STICKERS', stickers: response });
       });
     },
-    addCustomization: (sticker) => {
-      dispatch({ type: 'ADD_CUSTOMIZATION', sticker });
-    },
-    clearCustomization: () => {
-      dispatch({ type: 'CLEAR_CUSTOMIZATION' });
-    },
-    changeProductDimensions: (widthInInches, heightInInches) => {
-      dispatch({ type: 'CHANGE_PRODUCT_DIMENSIONS', widthInInches, heightInInches });
-    },
+    changePage: (pageNumber) => {
+      dispatch( { type: 'CHANGE_PAGE', value: pageNumber });
+    }
   };
 }
 

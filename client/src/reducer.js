@@ -42,14 +42,34 @@ export function product(state = new Map(), action) {
 export function stickers(state = ImmutableList.of(), action) {
   switch (action.type) {
     case 'RECEIVE_STICKERS':
-      return action.stickers;
+      return ImmutableList.of(...action.stickers.map(sticker));
     default:
       return state;
   }
 }
 
+export function pagination(state = new Map({ current: 1, perPage: 9 }), action) {
+  switch (action.type) {
+    case 'CHANGE_PAGE':
+      return state.set('current', action.value);
+    default:
+      return state;
+  }
+}
+
+function sticker(sticker, i) {
+  return new Map({ id: i,
+    image: sticker.image,
+    widthInInches: sticker.dimensions.width,
+    heightInInches: sticker.dimensions.height,
+  });
+
+}
+
+
 export default combineReducers({
   customization,
   stickers,
   product,
+  pagination,
 });
