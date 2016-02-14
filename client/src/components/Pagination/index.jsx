@@ -28,7 +28,7 @@ export default class Pagination extends Component {
   handleClick(event) {
     event.preventDefault();
     const nextPage = parseInt(event.target.getAttribute('data-page-number'), 10);
-    this.props.onChangePage(nextPage)
+    this.props.onChangePage(nextPage);
   }
 
   renderPaginationButton(page) {
@@ -42,7 +42,6 @@ export default class Pagination extends Component {
     );
   }
 
-
   render() {
     const start = Math.max(1, this.props.currentPage - 4);
     const end = Math.min(this.props.totalPages + 1, this.props.currentPage + 5);
@@ -52,11 +51,11 @@ export default class Pagination extends Component {
     return (
       <div className={styles.container}>
         <ul className={styles.list}>
-          <li className={styles.item}>
+          <li className={`${styles.item} prev-button`}>
             <a href="#" className={styles.button} onClick={this.previousPage}>&lt;</a>
           </li>
           {paginationButtons}
-          <li className={styles.item}>
+          <li className={`${styles.item} next-button`}>
             <a href="#" className={styles.button} onClick={this.nextPage}>&gt;</a>
           </li>
         </ul>
