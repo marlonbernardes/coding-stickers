@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StickerList from '../StickerList';
+import ProductContainer from '../../containers/ProductContainer';
 import DraggableStickerContainer from '../../containers/DraggableStickerContainer';
 import './CustomizationWidget.scss';
 
@@ -7,6 +8,18 @@ const defaultProps = {
 };
 
 class CustomizationWidget extends Component {
+
+  constructor() {
+    super();
+    this.handleProductDimensionsChange = this.handleProductDimensionsChange.bind(this);
+  }
+
+  handleProductDimensionsChange(event) {
+    const selectedOption = event.target.selectedOptions[0];
+    const width = parseFloat(selectedOption.getAttribute('data-width'));
+    const height = parseFloat(selectedOption.getAttribute('data-height'));
+    this.props.changeProductDimensions(width, height);
+  }
 
   render() {
     const {
@@ -20,7 +33,7 @@ class CustomizationWidget extends Component {
       <div className="container container-product">
         <div className="product-view">
           <div className="product-img dropzone">
-            <img id="custom" src="http://store.storeimages.cdn-apple.com/4662/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbookpro/select/macbookpro-select-inthebox?wid=1122&hei=804&fmt=jpeg&qlt=95&op_sharpen=0&resMode=bicub&op_usm=0.5,0.5,0,0&iccEmbed=0&layer=comp&.v=1453535639039" />
+            <ProductContainer />
             <DraggableStickerContainer />
           </div>
         </div>
@@ -31,6 +44,11 @@ class CustomizationWidget extends Component {
             </a>
 
             <input placeholder="Find stickers" onChange={onChangeFilter}/>
+            <select onChange={this.handleProductDimensionsChange}>
+              <option data-width="14.13" data-height="9.73">{`MacBook Pro 17"`}</option>
+              <option data-width="5" data-height="3">{`MacBook Pro 19"`}</option>
+              <option data-width="10" data-height="8">{`MacBook Pro 15"`}</option>
+            </select>
           </div>
           <StickerList
             onClickSticker={onClickSticker}

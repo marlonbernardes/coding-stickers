@@ -27,6 +27,18 @@ export function customization(state = ImmutableList.of(), action) {
   }
 }
 
+export function product(state = new Map(), action) {
+  switch (action.type) {
+    case 'CHANGE_PRODUCT_DIMENSIONS':
+      return new Map({
+        widthInInches: action.widthInInches,
+        heightInInches: action.heightInInches,
+      });
+    default:
+      return state;
+  }
+}
+
 export function stickers(state = ImmutableList.of(), action) {
   switch (action.type) {
     case 'RECEIVE_STICKERS':
@@ -39,4 +51,5 @@ export function stickers(state = ImmutableList.of(), action) {
 export default combineReducers({
   customization,
   stickers,
+  product,
 });

@@ -69,15 +69,12 @@ export class DraggableSticker extends Component {
     this.props.onClickOutside();
   }
 
-  // TODO: Refactor
   calculateImageStyle() {
     const imageWidthInPixels = 550;
 
-    // TODO: Extract <Product> component!
-    // MacBook measurements
     const productMeasurements = {
-      width: 14.13,
-      height: 9.73,
+      width: this.props.productWidthInInches,
+      height: this.props.productHeightInInches,
     };
 
     // Firstly we determine the product height in pixels, based on its real dimensions (inches)
@@ -94,7 +91,7 @@ export class DraggableSticker extends Component {
 
   render() {
     const selectedClass = this.props.selected ? 'draggable-selected' : '';
-    const visibleClass = this.props.visible ? '' : 'hidden-sticker'
+    const visibleClass = this.props.visible ? '' : 'hidden-sticker';
     return (
       <div ref="element"
         className={`draggable-sticker ${selectedClass} ${visibleClass}`}

@@ -15,6 +15,7 @@ export class CustomizationContainer extends Component {
       <CustomizationWidget
         onClickSticker={this.props.addCustomization}
         onClearCustomization={this.props.clearCustomization}
+        changeProductDimensions={this.props.changeProductDimensions}
         onChangeFilter={this.props.findStickers}
         stickers={this.props.stickers}
       />
@@ -48,6 +49,9 @@ function mapDispatchToProps(dispatch) {
     },
     clearCustomization: () => {
       dispatch({ type: 'CLEAR_CUSTOMIZATION' });
+    },
+    changeProductDimensions: (widthInInches, heightInInches) => {
+      dispatch({ type: 'CHANGE_PRODUCT_DIMENSIONS', widthInInches, heightInInches });
     },
   };
 }
