@@ -62,21 +62,16 @@ export class DraggableSticker extends Component {
 
   calculateImageStyle() {
     const imageWidthInPixels = 550;
-
-    const productMeasurements = {
-      width: this.props.productWidthInInches,
-      height: this.props.productHeightInInches,
-    };
-
+    const {productWidthInInches,productHeightInInches,widthInInches,heightInInches} = this.props;
     // Firstly we determine the product height in pixels, based on its real dimensions (inches)
     const productHeightInPx =
-      (imageWidthInPixels * productMeasurements.height) / productMeasurements.width;
+      (imageWidthInPixels * productHeightInInches) /productWidthInInches;
     // ... then we compute the stickers height and width based on the product height
-    const height = (productHeightInPx * this.props.heightInInches) / productMeasurements.height;
-    const width = (this.props.widthInInches * height) / this.props.heightInInches;
+    const height = (productHeightInPx * heightInInches) / productHeightInInches;
+    const width = (widthInInches * height) / heightInInches;
     return {
       width: `${width}px`,
-      height: `${height}px`,
+      height: `${height}px`
     };
   }
 

@@ -17,7 +17,6 @@ export class DraggableStickerContainer extends Component {
         heightInInches={ sticker.get('heightInInches') }
         productWidthInInches={this.props.product.get('widthInInches')}
         productHeightInInches={this.props.product.get('heightInInches')}
-        onMoveEnd={ this.props.onMoveEnd }
         selected={ sticker.get('selected') }
       />
     ));
