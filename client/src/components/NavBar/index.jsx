@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import styles from './NavBar.module.scss';
 
 export default class NavBar extends Component {
@@ -15,3 +15,7 @@ export default class NavBar extends Component {
     );
   }
 }
+
+NavBar.propTypes = {
+  children: PropTypes.node,
+};
