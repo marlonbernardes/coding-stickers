@@ -82,10 +82,9 @@ export class DraggableSticker extends Component {
 
   render() {
     const selectedClass = this.props.selected ? 'draggable-selected' : '';
-    const visibleClass = this.props.visible ? '' : 'hidden-sticker';
     return (
       <div ref="element"
-        className={`draggable-sticker ${selectedClass} ${visibleClass}`}
+        className={`draggable-sticker ${selectedClass}`}
         onClick={this.handleOnClickSticker}
       >
         <img ref="image" src={this.props.image} style={this.calculateImageStyle()}/>
