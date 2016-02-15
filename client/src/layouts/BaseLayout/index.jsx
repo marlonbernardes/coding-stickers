@@ -12,7 +12,7 @@ class BaseLayout extends Component {
   render() {
     return (
       <div className="page">
-        <GitHubRibbon repository="marlonbernardes/sticker"/>
+        <GitHubRibbon repository="marlonbernardes/coding-stickers"/>
         <PageHeader/>
         { this.props.children }
         <Footer />
