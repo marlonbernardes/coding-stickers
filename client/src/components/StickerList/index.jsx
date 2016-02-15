@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import StickerListItem from '../StickerListItem';
 import './StickerList.scss';
 
@@ -20,3 +20,8 @@ export default class StickerList extends Component {
     );
   }
 }
+
+StickerList.propTypes = {
+  stickers: PropTypes.any,
+  onClickSticker: PropTypes.func,
+};
