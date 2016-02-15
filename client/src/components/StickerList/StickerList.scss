@@ -3,6 +3,13 @@
   display: inline-block;
 }
 
+@media (max-width: 1300px) {
+  .product-view {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
 .product-footer {
   margin-top: 10px;
   text-align: center;
