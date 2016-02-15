@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import StickerList from '../components/StickerList';
 
@@ -39,3 +39,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(StickerListContainer);
+
+StickerListContainer.propTypes = {
+  addCustomization: PropTypes.func,
+  stickers: PropTypes.object,
+};

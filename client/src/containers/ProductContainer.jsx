@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import DraggableStickerContainer from './DraggableStickerContainer';
 
@@ -67,3 +67,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProductContainer);
+
+ProductContainer.propTypes = {
+  changeProductDimensions: PropTypes.func,
+  clearCustomization: PropTypes.func,
+};

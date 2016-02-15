@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import DraggableSticker from '../components/DraggableSticker';
 
@@ -56,3 +56,11 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(DraggableStickerContainer);
+
+DraggableStickerContainer.propTypes = {
+  selectedStickers: PropTypes.object,
+  product: PropTypes.object,
+  onClickRemove: PropTypes.func,
+  onClickOutside: PropTypes.func,
+  onClickSticker: PropTypes.func,
+};

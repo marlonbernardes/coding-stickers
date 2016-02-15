@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import CustomizationWidget from '../components/CustomizationWidget';
 import StickersApi from '../api/stickers';
@@ -38,3 +38,7 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CustomizationContainer);
+
+CustomizationContainer.propTypes = {
+  findStickers: PropTypes.func,
+};

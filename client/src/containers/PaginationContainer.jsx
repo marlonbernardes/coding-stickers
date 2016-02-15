@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Pagination from '../components/Pagination';
 
@@ -34,3 +34,9 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PaginationContainer);
+
+PaginationContainer.propTypes = {
+  totalPages: PropTypes.number,
+  currentPage: PropTypes.number,
+  onChangePage: PropTypes.func,
+};
