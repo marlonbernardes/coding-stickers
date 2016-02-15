@@ -9,7 +9,7 @@ export default class Sticker extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.image !== nextProps.image){
+    if (this.props.image !== nextProps.image) {
       this.preloadImage(nextProps.image);
     }
   }
@@ -19,18 +19,18 @@ export default class Sticker extends Component {
     image.src = imageUrl;
     this.refs.image.style.backgroundImage = '';
     this.refs.loader.show();
-    image.onload = (() => {
+    image.onload = () => {
       if (this.refs.loader) {
         this.refs.loader.hide();
         this.refs.image.style.backgroundImage = `url(${imageUrl})`;
       }
-    });
+    };
   }
 
   render() {
     return (
       <div onClick={this.props.onClick}>
-        <div ref='image' className={`${styles.sticker} sticker-image`}>
+        <div ref="image" className={`${styles.sticker} sticker-image`}>
           <Loader ref="loader" />
         </div>
       </div>
