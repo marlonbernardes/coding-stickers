@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RotateButton from '../RotateButton';
 import enhanceWithClickOutside from 'react-click-outside';
+import { IMAGE_WIDTH_IN_PIXELS } from '../../containers/ProductContainer';
 import './DraggableSticker.scss';
 
 export class DraggableSticker extends Component {
@@ -61,29 +62,38 @@ export class DraggableSticker extends Component {
   }
 
   calculateImageStyle() {
-    const imageWidthInPixels = 550;
-    const {productWidthInInches,productHeightInInches,widthInInches,heightInInches} = this.props;
+    const {
+      productWidthInInches,
+      productHeightInInches,
+      widthInInches,
+      heightInInches,
+    } = this.props;
     // Firstly we determine the product height in pixels, based on its real dimensions (inches)
     const productHeightInPx =
-      (imageWidthInPixels * productHeightInInches) /productWidthInInches;
+      (IMAGE_WIDTH_IN_PIXELS * productHeightInInches) / productWidthInInches;
     // ... then we compute the stickers height and width based on the product height
     const height = (productHeightInPx * heightInInches) / productHeightInInches;
     const width = (widthInInches * height) / heightInInches;
     return {
       width: `${width}px`,
-      height: `${height}px`
+      height: `${height}px`,
     };
   }
 
   render() {
     const selectedClass = this.props.selected ? 'draggable-selected' : '';
     const visibleClass = this.props.visible ? '' : 'hidden-sticker';
+    const startingPosition = {
+      x: 200,
+      y: 100,
+    };
+
     return (
       <div ref="element"
         className={`draggable-sticker ${selectedClass} ${visibleClass}`}
-        data-x="200"
-        data-y="100"
-        style={{left: '200px', top: '100px' }}
+        data-x={startingPosition.x}
+        data-y={startingPosition.y}
+        style={{ left: `${startingPosition.x}px`, top: `${startingPosition.y}px` }}
         onClick={this.handleOnClickSticker}
       >
         <img ref="image" src={this.props.image} style={this.calculateImageStyle()}/>

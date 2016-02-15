@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DraggableStickerContainer from './DraggableStickerContainer';
 
+export const IMAGE_WIDTH_IN_PIXELS = 550;
 export class ProductContainer extends Component {
 
   constructor() {
@@ -23,7 +24,7 @@ export class ProductContainer extends Component {
   render() {
     return (
       <div className="product-view">
-        <div className="product-img dropzone">
+        <div className="product-img dropzone" style={{width: `${IMAGE_WIDTH_IN_PIXELS}px`}}>
           <img id="custom" src="/img/macbook.jpg" />
           <DraggableStickerContainer />
         </div>
