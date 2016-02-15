@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import RotateButton from '../RotateButton';
 import enhanceWithClickOutside from 'react-click-outside';
 import { IMAGE_WIDTH_IN_PIXELS } from '../../containers/ProductContainer';
@@ -106,5 +106,19 @@ export class DraggableSticker extends Component {
     );
   }
 }
+
+DraggableSticker.propTypes = {
+  index: PropTypes.number,
+  selected: PropTypes.bool,
+  visible: PropTypes.bool,
+  image: PropTypes.string,
+  productWidthInInches: PropTypes.number,
+  productHeightInInches: PropTypes.number,
+  widthInInches: PropTypes.number,
+  heightInInches: PropTypes.number,
+  onClickSticker: PropTypes.func,
+  onClickRemove: PropTypes.func,
+  onClickOutside: PropTypes.func,
+};
 
 export default enhanceWithClickOutside(DraggableSticker);
