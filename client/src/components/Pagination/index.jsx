@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Range } from 'immutable';
 import styles from './Pagination.module.scss';
 
@@ -91,3 +91,9 @@ export default class Pagination extends Component {
     );
   }
 }
+
+Pagination.propTypes = {
+  currentPage: PropTypes.number,
+  totalPages: PropTypes.number,
+  onChangePage: PropTypes.func,
+};
