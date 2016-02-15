@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import styles from './GitHubRibbon.module.scss';
 
 export default class GitHubRibbon extends Component {
@@ -15,3 +15,7 @@ export default class GitHubRibbon extends Component {
     );
   }
 }
+
+GitHubRibbon.propTypes = {
+  repository: PropTypes.string,
+};
