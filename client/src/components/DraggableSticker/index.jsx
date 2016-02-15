@@ -77,9 +77,10 @@ export class DraggableSticker extends Component {
 
   render() {
     const selectedClass = this.props.selected ? 'draggable-selected' : '';
+    const visibleClass = this.props.visible ? '' : 'hidden-sticker';
     return (
       <div ref="element"
-        className={`draggable-sticker ${selectedClass}`}
+        className={`draggable-sticker ${selectedClass} ${visibleClass}`}
         data-x="200"
         data-y="100"
         style={{left: '200px', top: '100px' }}
