@@ -25,7 +25,7 @@ class CustomizationWidget extends Component {
 }
 
 CustomizationWidget.propTypes = {
-  onChangeFilter: PropTypes.onChangeFilter.func,
+  onChangeFilter: PropTypes.func,
 };
 
 export default CustomizationWidget;
