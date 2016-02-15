@@ -42,9 +42,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onMoveEnd: (index, x, y) => {
-      dispatch({ type: 'UPDATE_POSITION', index, x, y });
-    },
     onClickRemove: (index) => {
       dispatch({ type: 'REMOVE_CUSTOMIZATION', index });
     },

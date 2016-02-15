@@ -19,20 +19,11 @@ export class DraggableSticker extends Component {
       inertia: true,
       onstart: this.handleOnClickSticker,
       onmove: this.onMoveSticker.bind(this),
-      onend: this.onMoveEnd.bind(this),
       restrict: {
         restriction: '.dropzone',
         endOnly: true,
       },
     });
-  }
-
-  onMoveEnd() {
-    this.props.onMoveEnd(
-      this.props.index,
-      (parseFloat(this.refs.element.getAttribute('data-x')) || 0),
-      (parseFloat(this.refs.element.getAttribute('data-y')) || 0)
-    );
   }
 
   onMoveSticker(event) {
