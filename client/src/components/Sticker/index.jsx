@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Loader from '../Loader';
 import styles from './Sticker.module.scss';
 
@@ -37,3 +37,8 @@ export default class Sticker extends Component {
     );
   }
 }
+
+Sticker.propTypes = {
+  image: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
