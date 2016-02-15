@@ -1,13 +1,37 @@
 import React, { Component } from 'react';
+import Loader from '../Loader';
 import styles from './Sticker.module.scss';
 
 export default class Sticker extends Component {
 
+  componentDidMount() {
+    this.preloadImage(this.props.image);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(this.props.image !== nextProps.image){
+      this.preloadImage(nextProps.image);
+    }
+  }
+
+  preloadImage(imageUrl) {
+    const image = new Image();
+    image.src = imageUrl;
+    this.refs.image.style.backgroundImage = '';
+    this.refs.loader.show();
+    image.onload = (() => {
+      if (this.refs.loader) {
+        this.refs.loader.hide();
+        this.refs.image.style.backgroundImage = `url(${imageUrl})`;
+      }
+    });
+  }
+
   render() {
     return (
       <div onClick={this.props.onClick}>
-        <div className={styles.sticker} >
-          <img ref="target" src={this.props.image} className={styles.image} />
+        <div ref='image' className={`${styles.sticker} sticker-image`}>
+          <Loader ref="loader" />
         </div>
       </div>
     );

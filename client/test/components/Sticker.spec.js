@@ -6,10 +6,10 @@ import Sticker from '../../src/components/Sticker';
 describe('<Sticker />', () => {
   it(`renders the sticker's image`, () => {
     const rendered = shallow(<Sticker image="foo.png" />);
-    const img = rendered.find('img');
-    expect(img).to.have.length(1);
-    expect(img.prop('src')).to.eql('foo.png');
+    const image = rendered.find('.sticker-image');
+    expect(image).to.have.length(1);
   });
+
 
   it(`triggers the onClick event`, () => {
     let triggered = false;
