@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import StickerListContainer from '../../containers/StickerListContainer';
 import ProductContainer from '../../containers/ProductContainer';
 import PaginationContainer from '../../containers/PaginationContainer';
 import './CustomizationWidget.scss';
-
-const defaultProps = {
-};
 
 class CustomizationWidget extends Component {
 
@@ -27,5 +24,8 @@ class CustomizationWidget extends Component {
   }
 }
 
-CustomizationWidget.defaultProps = defaultProps;
+CustomizationWidget.propTypes = {
+  onChangeFilter: PropTypes.onChangeFilter.func,
+};
+
 export default CustomizationWidget;
