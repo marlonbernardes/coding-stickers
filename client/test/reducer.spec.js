@@ -20,10 +20,6 @@ describe('reducer', () => {
     });
 
     it('should allow a sticker to be hidden', () => {
-      const expected = ImmutableList.of(
-        new Map({ index: 0, x: 0, y: 0 }),
-        new Map({ index: 1, x: 0, y: 0, visible: false })
-      );
       const actual = customization(
         ImmutableList.of(
           new Map({ index: 0, x: 0, y: 0 }),
@@ -31,27 +27,32 @@ describe('reducer', () => {
         ),
         { type: 'REMOVE_CUSTOMIZATION', index: 1 }
       );
+
+      const expected = ImmutableList.of(
+        new Map({ index: 0, x: 0, y: 0 }),
+        new Map({ index: 1, x: 0, y: 0, visible: false })
+      );
       expect(actual).to.eql(expected);
     });
 
     it('should allow a sticker to be selected', () => {
       const sticker = new Map({ index: 0 });
       const selectedSticker = new Map({ index: 0, selected: true })
-      const expected = ImmutableList.of(sticker, selectedSticker);
       const actual = customization(
         ImmutableList.of(sticker, sticker),
         { type: 'SELECT_STICKER', index: 1 }
       );
+      const expected = ImmutableList.of(sticker, selectedSticker);
       expect(actual).to.eql(expected);
     });
 
     it('should allow to clear the current selection', () => {
       const selectedSticker = new Map({ index: 0, selected: true })
-      const expected = ImmutableList.of(new Map({ index: 0 }));
       const actual = customization(
         ImmutableList.of(selectedSticker),
         { type: 'CLEAR_SELECTION' }
       );
+      const expected = ImmutableList.of(new Map({ index: 0 }));
       expect(actual).to.eql(expected);
     });
 
