@@ -80,6 +80,9 @@ export class DraggableSticker extends Component {
     return (
       <div ref="element"
         className={`draggable-sticker ${selectedClass}`}
+        data-x="200"
+        data-y="100"
+        style={{left: '200px', top: '100px' }}
         onClick={this.handleOnClickSticker}
       >
         <img ref="image" src={this.props.image} style={this.calculateImageStyle()}/>
