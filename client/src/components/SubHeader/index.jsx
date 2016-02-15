@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import styles from './SubHeader.module.scss';
 
 export default class SubHeader extends Component {
@@ -13,3 +13,7 @@ export default class SubHeader extends Component {
     );
   }
 }
+
+SubHeader.propTypes = {
+  image: PropTypes.string.isRequired,
+};
