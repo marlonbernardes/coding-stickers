@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import styles from './NavLink.module.scss';
 
 export default class NavLink extends Component {
@@ -13,3 +13,10 @@ export default class NavLink extends Component {
     );
   }
 }
+
+NavLink.propTypes = {
+  active: PropTypes.bool,
+  href: PropTypes.string,
+  title: PropTypes.string,
+  text: PropTypes.string,
+};
