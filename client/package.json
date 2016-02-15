@@ -43,11 +43,12 @@
     "redux": "^3.3.0"
   },
   "scripts": {
-    "lint": "eslint --ext js,jsx ./src/**",
-    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --watch-extensions js,jsx --recursive 'test/**/*.@(js|jsx)'",
-    "test:watch": "npm test -- --watch",
-    "deploy": "npm run build && npm run surge",
     "build": "NODE_ENV=production webpack",
-    "surge": "surge dist --domain coding-stickers.surge.sh"
+    "deploy": "npm run build && npm run surge",
+    "lint": "eslint --ext js,jsx ./src/**",
+    "start": "webpack-dev-server",
+    "surge": "surge dist --domain coding-stickers.surge.sh",
+    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js --watch-extensions js,jsx --recursive 'test/**/*.@(js|jsx)'",
+    "test:watch": "npm test -- --watch"
   }
 }
