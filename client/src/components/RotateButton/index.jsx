@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import styles from './RotateButton.module.scss';
 
 export function calculateRotationDegrees(startingPoint, currentPoint) {
@@ -39,3 +39,8 @@ class RotateButton extends Component {
 }
 
 export default RotateButton;
+
+RotateButton.propTypes = {
+  referencePoint: PropTypes.func,
+  rotate: PropTypes.func,
+};
