@@ -42,14 +42,13 @@ input {
   position: relative;
 }
 
+@media (max-width: 750px) {
+  .container {
+    width: 100%;
+  }
+}
+
 .content {
   padding-left: 42px;
   padding-right: 42px;
-}
-
-
-@media (min-width: 1480px) {
-  .container.container-header {
-    max-width: 1130px;
-  }
 }

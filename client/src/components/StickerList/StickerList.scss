@@ -21,6 +21,13 @@
   border-radius: 6px;
 }
 
+@media (max-width: 1300px) {
+  .content.stickers {
+    display: block;
+    margin: 30px auto;
+  }
+}
+
 .stickers-search {
   width: 100%;
 }
